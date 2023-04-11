@@ -1,0 +1,133 @@
+openapi: "3.0.2"
+info:
+  title: AwsomeConstructorCompany
+  version: "1.0"
+servers:
+  - url: https://api.server.test/v1
+paths:
+  /Quotation:
+    post:
+      description: "Recives a quotation request from a HRC company"
+      parameters: 
+        - in: query
+          required: true
+          name: QuotationRequest
+          description: sdfghjkl;
+          schema:
+            type: object
+            $ref: "#/components/schemas/QuotationRequest"
+
+
+      responses:
+        "200":
+          description: Request submitted successfuly.
+    put:
+      description: "Edit a request for quotation to constructor"
+      parameters: 
+        - in: query
+          required: true
+          name: QuotationRequestId
+          description: sdfghjkl;
+          schema:
+            type: object
+            $ref: "#/components/schemas/QuotationRequest"
+      
+
+      responses:
+        "404":
+          description: Request not found
+        "200":
+          description: Changes applied successfuly
+
+    delete:
+      description: "delete a request for quotation to constructor"
+      parameters: 
+        - in: query
+          name: QuotationRequestId
+          required: true
+          schema:
+            type: integer
+            description: 'Quotation request Id'
+
+      responses:
+        "404":
+          description: Request not found
+        "200":
+          description: delete successfuly
+
+    get:
+      description: "Offer a quoation to HRC ......................................."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: integer
+              description: 'Quotation request Id'
+
+      responses:
+        "200":
+          description: Ok
+        "202":
+          description: Not ready
+
+  /Project:
+    post: 
+      description: cblsakdsadnwkalfdawflknksgf 
+      requestBody: 
+        content:
+          in: query 
+          application/json:
+            schema: 
+              type: integer
+              description: Id of quotation request
+        
+      responses: 
+        "200":
+          description: Ok
+          
+      
+
+
+components:
+  schemas:
+    QuotationRequest:
+      description: Model containing quotation request information
+      properties:
+        id:
+          type: integer
+          example: 4
+        budget:
+          description: Budget in Euroes
+          type: number
+          example: 900
+        startData:
+          type: object
+          example: 10/10/2023
+        duration:
+          description: duration in days
+          type: integer
+          example: 8
+        address:
+          type: string
+          example: via blah blah
+    Quotation:
+      description: Model containg the quotation offered by the renovation company
+      properties: 
+        id:
+          type: integer
+          example: 10
+        servicePrice:
+          description: the price for the service
+          type: number
+          example: 1000
+        duration:
+          description: duration in days
+          type: integer
+          example: 10
+        startDate:
+          description: the date that 
+          type: string
+          example: 11/10/2023
+          
+
