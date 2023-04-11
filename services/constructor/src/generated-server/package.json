@@ -1,0 +1,16 @@
+{
+    "name": "awsomeconstructorcompany",
+    "version": "1.0",
+    "description": "No description provided",
+    "license": "UNLICENSED",
+    
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "prestart": "npm install --only=prod",
+        "start": "node index.js"    },
+    "dependencies": {
+        "express": "^4.18.0",
+        "@oas-tools/core": "^3.0.0"
+    }
+}
