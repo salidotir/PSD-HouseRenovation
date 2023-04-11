@@ -5,7 +5,7 @@ info:
 servers:
   - url: https://api.server.test/v1
 paths:
-  /Quotation:
+  /NewQuotation:
     post:
       description: "Recives a quotation request from a HRC company"
       parameters: 
@@ -32,100 +32,161 @@ paths:
           schema: 
             type: integer
 
+        - in: query
+          required: true
+          name: Budget
+          description: Max budget in Euroes
+          example: 1000
+          schema: 
+            type: number
 
       responses:
-        "200":
+        "201":
           description: Request submitted successfuly.
+        default:
+          description: Exception happened!
+  
+  /EditQuotation:
     put:
       description: "Edit a request for quotation to constructor"
       parameters: 
         - in: query
           required: true
           name: QuotationRequestId
-          description: sdfghjkl;
+          description: Id of the quotation request
+          example: 1
           schema:
-            type: object
-            $ref: "#/components/schemas/QuotationRequest"
-      
+            type: integer
+
+        - in: query
+          required: true
+          name: Address
+          description: Address of the property
+          schema:
+            type: string
+
+        - in: query
+          required: true
+          name: StartDate
+          description: Start Date
+          example: 10/10/2023
+          schema:
+            type: string
+
+        - in: query
+          required: true
+          name: Duration
+          description: Duration in days
+          example: 60
+          schema: 
+            type: integer
+
+        - in: query
+          required: true
+          name: Budget
+          description: Max budget in Euroes
+          example: 1000
+          schema: 
+            type: number
 
       responses:
         "404":
-          description: Request not found
+          description: Resource not found
         "200":
           description: Changes applied successfuly
+        default:
+          description: Exception happened!
+        
 
+  /DeleteQuotation/{id}:
     delete:
       description: "delete a request for quotation to constructor"
       parameters: 
-        - in: query
+        - in: path
           name: QuotationRequestId
+          description: Id of the quotation request
           required: true
+          example: 1
           schema:
             type: integer
-            description: 'Quotation request Id'
 
       responses:
         "404":
-          description: Request not found
+          description: Resource not found
         "200":
           description: delete successfuly
+        default:
+          description: Exception happened!
 
+  /GetQuotation/{id}:
     get:
-      description: "Offer a quoation to HRC ......................................."
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: integer
-              description: 'Quotation request Id'
+      description: "Offer a quoation to HRC"
+      parameters: 
+        - in: path
+          name: QuotationRequestId
+          description: Id of the quotation request
+          required: true
+          example: 1
+          schema:
+            type: integer
 
       responses:
         "200":
-          description: Ok
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Quotation'
+          description: Quotation
+        
         "202":
-          description: Not ready
+          description: Quotation not ready yet
+        default:
+          description: Exception happened!
 
   /Project:
     post: 
-      description: cblsakdsadnwkalfdawflknksgf 
-      requestBody: 
-        content:
-          in: query 
-          application/json:
-            schema: 
-              type: integer
-              description: Id of quotation request
-        
+      description: Start the project
+      parameters:
+        - in: query
+          name: QuotationRequestId
+          description: Id of the quotation request
+          required: true
+          example: 1
+          schema:
+            type: integer
+      
       responses: 
         "200":
-          description: Ok
-          
+          description: ok
+        default:
+          description: Exception happened!
+
+  /ProjectCompletedStatus/{id}:
+    get:
+      description: Gets completion status of the project
+      parameters:
+        - in: path
+          name: QuotationRequestId
+          description: Id of the quotation request
+          required: true
+          example: 1
+          schema:
+            type: integer
       
+      responses: 
+        "200":
+          content:
+            application/json:
+              schema:
+                type: boolean
+          description: Ok
+        default:
+          description: Exception happened!
 
 
 components:
   schemas:
-    QuotationRequest:
-      description: Model containing quotation request information
-      properties:
-        id:
-          type: integer
-          example: 4
-        budget:
-          description: Budget in Euroes
-          type: number
-          example: 900
-        startData:
-          type: object
-          example: 10/10/2023
-        duration:
-          description: duration in days
-          type: integer
-          example: 8
-        address:
-          type: string
-          example: via blah blah
     Quotation:
       description: Model containg the quotation offered by the renovation company
       properties: 
@@ -145,4 +206,3 @@ components:
           type: string
           example: 11/10/2023
           
-
