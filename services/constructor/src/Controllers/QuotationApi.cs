@@ -112,7 +112,15 @@ namespace AwsomeConstructor.Controllers
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
                         : default(Quotation);            //TODO: Change the data returned
-            return new ObjectResult(example);
+            var q = new Quotation()
+            {
+                Duration = 10,
+                StartDate="10/10/2023",
+                ServicePrice=100,
+                Id=id
+            };
+            return new ObjectResult(q);
+
         }
 
         /// <summary>
