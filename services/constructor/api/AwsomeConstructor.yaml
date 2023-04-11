@@ -116,7 +116,7 @@ paths:
       description: "delete a request for quotation to constructor"
       parameters: 
         - in: path
-          name: QuotationRequestId
+          name: id
           description: Id of the quotation request
           required: true
           example: 1
@@ -138,7 +138,7 @@ paths:
       description: "Offer a quoation to HRC"
       parameters: 
         - in: path
-          name: QuotationRequestId
+          name: id
           description: Id of the quotation request
           required: true
           example: 1
@@ -186,7 +186,7 @@ paths:
       description: Gets completion status of the project
       parameters:
         - in: path
-          name: QuotationRequestId
+          name: id
           description: Id of the quotation request
           required: true
           example: 1
