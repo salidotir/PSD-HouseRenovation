@@ -11,11 +11,26 @@ paths:
       parameters: 
         - in: query
           required: true
-          name: QuotationRequest
-          description: sdfghjkl;
+          name: Address
+          description: Address of the property
           schema:
-            type: object
-            $ref: "#/components/schemas/QuotationRequest"
+            type: string
+
+        - in: query
+          required: true
+          name: StartDate
+          description: Start Date
+          example: 10/10/2023
+          schema:
+            type: string
+
+        - in: query
+          required: true
+          name: Duration
+          description: Duration in days
+          example: 60
+          schema: 
+            type: integer
 
 
       responses:
