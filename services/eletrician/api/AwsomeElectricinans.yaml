@@ -5,16 +5,17 @@ info:
 servers:
   - url: https://api.server.test/v1
 tags:
-  - name: RequestForQuotation
-    description: Everything about request for quotation
-  - name: Project
-    description: Everything about your Project
+- name: RequestForQuotation
+  description: Request for quoation
+- name: Project
+
 paths:
-  /NewQuotationRequest:
+  /NewRequestForQuotation:
     post:
       tags:
-        - Quotation
-      description: Recives a quotation request from a HRC company
+        - RequestForQuotation
+      summary: Recives a new request for quotation from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: NewQuotationRequestPOST
       parameters:
         - name: Address
@@ -59,11 +60,12 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /EditQuotation:
+  /EditRequestForQuotation:
     put:
       tags:
-        - Quotation
-      description: Edit a request for quotation to constructor
+        - RequestForQuotation
+      summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: editQuotationPUT
       parameters:
         - name: QuotationRequestId
@@ -118,12 +120,14 @@ paths:
         default:
           description: Exception happened!
       x-swagger-router-controller: Quotation
-  /DeleteQuotationRequest/{id}:
+
+  /DeleteRequestForQuotation/{id}:
     delete:
       tags:
-        - Quotation
-      description: delete a request for quotation to constructor
-      operationId: deleteQuotationIdDELETE
+        - RequestForQuotation
+      summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
+      description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
+      operationId: deleteRequestForQuotationIdDELETE
       parameters:
         - name: id
           in: path
@@ -148,7 +152,8 @@ paths:
       post:
         tags:
         - Project
-        description: Start the project
+        summary: Request to start the project
+        description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
         operationId: newProjectPOST
         parameters:
         - name: QuotationRequestId
@@ -166,6 +171,7 @@ paths:
           default:
             description: Exception happened!
         x-swagger-router-controller: Project
+
 components:
   schemas:
     Quotation:
