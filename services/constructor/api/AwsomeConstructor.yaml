@@ -182,7 +182,7 @@ paths:
       tags:
       - Project
       summary: Request to start the project
-      description: In the event that a HRC decides PlumberBrothers as the winner, the HRC informs PlumberBrothersto start working on the project.
+      description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
       operationId: newProjectPOST
       parameters:
       - name: QuotationRequestId
