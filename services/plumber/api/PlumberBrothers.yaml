@@ -66,8 +66,6 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-
-
   /NewProject:
       post:
         tags:
@@ -76,7 +74,7 @@ paths:
         description: In the event that a HRC decides PlumberBrothers as the winner, the HRC informs PlumberBrothersto start working on the project.
         operationId: newProjectPOST
         parameters:
-        - name: QuotationRequestId
+        - name: id
           in: query
           description: Id of the quotation request
           required: true
@@ -91,6 +89,7 @@ paths:
           default:
             description: Exception happened!
         x-swagger-router-controller: Project
+
   /ProjectCompletionStatus/{id}:
     get:
       tags:
@@ -119,6 +118,7 @@ paths:
         default:
           description: Exception happened!
       x-swagger-router-controller: Project
+
 components:
   schemas:
     Quotation:
