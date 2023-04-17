@@ -18,4 +18,7 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\.sln\PSD.Common\PSD.Common.csproj" />
+  </ItemGroup>
 </Project>

@@ -40,7 +40,7 @@ namespace AwsomeElectricians.Controllers
         [ValidateModelState]
         [SwaggerOperation("DeleteRequestForQuotationIdDELETE")]
         public virtual IActionResult DeleteRequestForQuotationIdDELETE([FromRoute][Required]int? id)
-        { 
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -50,7 +50,7 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok($"Request with Id {id} deleted successfully");
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace AwsomeElectricians.Controllers
         [ValidateModelState]
         [SwaggerOperation("EditQuotationPUT")]
         public virtual IActionResult EditQuotationPUT([FromQuery][Required()]int? quotationRequestId, [FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        { 
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -80,7 +80,7 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
 
         /// <summary>
@@ -98,14 +98,14 @@ namespace AwsomeElectricians.Controllers
         [ValidateModelState]
         [SwaggerOperation("NewQuotationRequestPOST")]
         public virtual IActionResult NewQuotationRequestPOST([FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        { 
+        {
             //TODO: Uncomment the next line to return response 201 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(201);
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
     }
 }

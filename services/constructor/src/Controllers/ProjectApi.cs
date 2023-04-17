@@ -20,13 +20,13 @@ using Microsoft.AspNetCore.Authorization;
 using AwsomeConstructor.Models;
 
 namespace AwsomeConstructor.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class ProjectApiController : ControllerBase
-    { 
+    {
         /// <summary>
         /// Request to start the project
         /// </summary>
@@ -38,15 +38,14 @@ namespace AwsomeConstructor.Controllers
         [Route("/v1/NewProject")]
         [ValidateModelState]
         [SwaggerOperation("NewProjectPOST")]
-        public virtual IActionResult NewProjectPOST([FromQuery][Required()]int? id)
-        { 
+        public virtual IActionResult NewProjectPOST([FromQuery][Required()] int? id)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
-
-            throw new NotImplementedException();
+            return Ok("Request Inserted Successfully");
         }
 
         /// <summary>
@@ -57,24 +56,22 @@ namespace AwsomeConstructor.Controllers
         /// <response code="200">Ok</response>
         /// <response code="0">Exception happened!</response>
         [HttpGet]
-        [Route("/v1/ProjectCompletionStatus/{id}")]
+        [Route("/v1/ProjectCompletionStatusById/{id}")]
         [ValidateModelState]
         [SwaggerOperation("ProjectCompletionStatusIdGET")]
         [SwaggerResponse(statusCode: 200, type: typeof(bool?), description: "Ok")]
-        public virtual IActionResult ProjectCompletionStatusIdGET([FromRoute][Required]int? id)
-        { 
+        public virtual IActionResult ProjectCompletionStatusByIdGET([FromRoute][Required] int? id)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(bool?));
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
-            string exampleJson = null;
-            exampleJson = "true";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<bool?>(exampleJson)
-                        : default(bool?);            //TODO: Change the data returned
-            return new ObjectResult(example);
+            bool status = id % 2 == 0 ? true : false;
+
+
+            return Ok(status);
+
         }
     }
 }

@@ -18,6 +18,7 @@ using PlumberBrothers.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using PlumberBrothers.Models;
+using PSD.Common;
 
 namespace PlumberBrothers.Controllers
 { 
@@ -44,7 +45,7 @@ namespace PlumberBrothers.Controllers
         [SwaggerOperation("NewRequestForQuotationPOST")]
         [SwaggerResponse(statusCode: 200, type: typeof(Quotation), description: "Quotation")]
         public virtual IActionResult NewRequestForQuotationPOST([FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        { 
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Quotation));
 
@@ -54,12 +55,15 @@ namespace PlumberBrothers.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
             string exampleJson = null;
+            string preJSON = "{";
+            string postJSON = "}";
+            string JSON = $"\n  \"duration\" : {Common.GetRandomNumber(5, 20)},\n  \"servicePrice\" : {Common.GetRandomNumber(500, 3500)},\n  \"startDate\" : \"{Common.GetRandomNumber(1, 30)}/{Common.GetRandomNumber(1, 12)}/{Common.GetRandomNumber(2023, 2025)}\"\n";
             exampleJson = "{\n  \"duration\" : 10,\n  \"servicePrice\" : 1000,\n  \"id\" : 10,\n  \"startDate\" : \"11/10/2023\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
-                        : default(Quotation);            //TODO: Change the data returned
-            return new ObjectResult(example);
+
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
+            : default(Quotation);            //TODO: Change the data returned
+            return Ok(preJSON + JSON + postJSON);
         }
     }
 }

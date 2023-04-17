@@ -18,15 +18,16 @@ using AwsomeConstructor.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using AwsomeConstructor.Models;
+using PSD.Common;
 
 namespace AwsomeConstructor.Controllers
-{ 
+{
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class RequestForQuotationApiController : ControllerBase
-    { 
+    {
         /// <summary>
         /// Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
         /// </summary>
@@ -39,8 +40,8 @@ namespace AwsomeConstructor.Controllers
         [Route("/v1/DeleteRequestForQuotation/{id}")]
         [ValidateModelState]
         [SwaggerOperation("DeleteRequestForQuotationIdDELETE")]
-        public virtual IActionResult DeleteRequestForQuotationIdDELETE([FromRoute][Required]int? id)
-        { 
+        public virtual IActionResult DeleteRequestForQuotationIdDELETE([FromRoute][Required] int? id)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -50,7 +51,7 @@ namespace AwsomeConstructor.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok($"Request with Id {id} deleted successfully");
         }
 
         /// <summary>
@@ -69,8 +70,8 @@ namespace AwsomeConstructor.Controllers
         [Route("/v1/EditRequestForQuotation")]
         [ValidateModelState]
         [SwaggerOperation("EditRequestForQuotationPUT")]
-        public virtual IActionResult EditRequestForQuotationPUT([FromQuery][Required()]int? quotationRequestId, [FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        { 
+        public virtual IActionResult EditRequestForQuotationPUT([FromQuery][Required()] int? quotationRequestId, [FromQuery][Required()] string address, [FromQuery][Required()] string startDate, [FromQuery][Required()] int? duration, [FromQuery][Required()] decimal? budget)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -80,7 +81,7 @@ namespace AwsomeConstructor.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
 
         /// <summary>
@@ -96,8 +97,8 @@ namespace AwsomeConstructor.Controllers
         [ValidateModelState]
         [SwaggerOperation("GetQuotationIdGET")]
         [SwaggerResponse(statusCode: 200, type: typeof(Quotation), description: "Quotation")]
-        public virtual IActionResult GetQuotationIdGET([FromRoute][Required]int? id)
-        { 
+        public virtual IActionResult GetQuotationIdGET([FromRoute][Required] int? id)
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Quotation));
 
@@ -107,12 +108,15 @@ namespace AwsomeConstructor.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
             string exampleJson = null;
+            string preJSON = "{";
+            string postJSON = "}";
+            string JSON = $"\n  \"duration\" : {Common.GetRandomNumber(5, 20)},\n  \"servicePrice\" : {Common.GetRandomNumber(500, 3500)},\n  \"id\" : {id},\n  \"startDate\" : \"{Common.GetRandomNumber(1, 30)}/{Common.GetRandomNumber(1, 12)}/{Common.GetRandomNumber(2023, 2025)}\"\n";
             exampleJson = "{\n  \"duration\" : 10,\n  \"servicePrice\" : 1000,\n  \"id\" : 10,\n  \"startDate\" : \"11/10/2023\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
-                        : default(Quotation);            //TODO: Change the data returned
-            return new ObjectResult(example);
+
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
+            : default(Quotation);            //TODO: Change the data returned
+            return Ok(preJSON + JSON + postJSON);
         }
 
         /// <summary>
@@ -129,15 +133,15 @@ namespace AwsomeConstructor.Controllers
         [Route("/v1/NewRequestForQuotation")]
         [ValidateModelState]
         [SwaggerOperation("NewRequestForQuotationPOST")]
-        public virtual IActionResult NewRequestForQuotationPOST([FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        { 
+        public virtual IActionResult NewRequestForQuotationPOST([FromQuery][Required()] string address, [FromQuery][Required()] string startDate, [FromQuery][Required()] int? duration, [FromQuery][Required()] decimal? budget)
+        {
             //TODO: Uncomment the next line to return response 201 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(201);
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
     }
 }

@@ -73,8 +73,8 @@ namespace AwsomeElectricians
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Implement Swagger UI",
-                    Description = "A simple example to Implement Swagger UI",
+                    Title = "Awsome Electricians",
+                    Description = "A simple Electrical company",
                 });
             });
         }

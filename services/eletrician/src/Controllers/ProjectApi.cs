@@ -39,14 +39,14 @@ namespace AwsomeElectricians.Controllers
         [ValidateModelState]
         [SwaggerOperation("NewProjectPOST")]
         public virtual IActionResult NewProjectPOST([FromQuery][Required()]int? id)
-        { 
+        {
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok("Project Started Successfully");
         }
     }
 }
