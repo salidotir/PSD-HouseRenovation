@@ -1,0 +1,257 @@
+openapi: 3.0.2
+info:
+  title: AwsomeConstructorCompany
+  version: "1.0"
+servers:
+- url: https://api.server.test/v1
+tags:
+- name: RequestForQuotation
+  description: Request for quoation
+- name: Project
+
+paths:
+  /NewRequestForQuotation:
+    post:
+      tags:
+      - RequestForQuotation
+      summary: Recives a new request for quoation from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
+      operationId: newRequestForQuotationPOST
+      parameters:
+      - name: Address
+        in: query
+        description: Address of the property
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: StartDate
+        in: query
+        description: Start Date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 10/10/2023
+      - name: Duration
+        in: query
+        description: Duration in days
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: 60
+      - name: Budget
+        in: query
+        description: Max budget in Euroes
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+        example: 1000
+      responses:
+        "201":
+          description: Request submitted successfuly.
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Quotation
+
+  /EditRequestForQuotation:
+    put:
+      tags:
+      - RequestForQuotation
+      summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
+      operationId: editRequestForQuotationPUT
+      parameters:
+      - name: QuotationRequestId
+        in: query
+        description: Id of the quotation request
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: 1
+      - name: Address
+        in: query
+        description: Address of the property
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: StartDate
+        in: query
+        description: Start Date
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+        example: 10/10/2023
+      - name: Duration
+        in: query
+        description: Duration in days
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: 60
+      - name: Budget
+        in: query
+        description: Max budget in Euroes
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: number
+        example: 1000
+      responses:
+        "200":
+          description: Changes applied successfuly
+        "404":
+          description: Resource not found
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Quotation
+
+  /DeleteRequestForQuotation/{id}:
+    delete:
+      tags:
+      - RequestForQuotation
+      summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
+      description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
+      operationId: deleteRequestForQuotationIdDELETE
+      parameters:
+      - name: id
+        in: path
+        description: Id of the quotation request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: delete successfuly
+        "404":
+          description: Resource not found
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Quotation
+
+  /GetQuotation/{id}:
+    get:
+      tags:
+      - RequestForQuotation
+      summary: Recives a request for offering the quotation of the request for quotaion with specific id from a HRC company and responds with the Quotation.
+      description: A HRC can sends a request for offering the Qutation of the request for quoation with specific id via this API. AwsomeConstructor responds with the Quotation.
+      operationId: getQuotationIdGET
+      parameters:
+      - name: id
+        in: path
+        description: Id of the quotation request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: Quotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quotation'
+        "202":
+          description: Quotation not ready yet
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Quotation
+
+  /NewProject:
+    post:
+      tags:
+      - Project
+      summary: Request to start the project
+      description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
+      operationId: newProjectPOST
+      parameters:
+      - name: id
+        in: query
+        description: Id of the quotation request
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: ok
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Project
+
+  /ProjectCompletionStatus/{id}:
+    get:
+      tags:
+      - Project
+      summary: Gets completion status of the project
+      description: The HRC company can check wether the project is completed or not.  
+      operationId: projectCompletionStatusIdGET
+      parameters:
+      - name: id
+        in: path
+        description: Id of the quotation request
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        "200":
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: boolean
+                x-content-type: application/json
+        default:
+          description: Exception happened!
+      x-swagger-router-controller: Project
+
+components:
+  schemas:
+    Quotation:
+      properties:
+        id:
+          type: integer
+          example: 10
+        servicePrice:
+          type: number
+          description: the price for the service
+          example: 1000
+        duration:
+          type: integer
+          description: duration in days
+          example: 10
+        startDate:
+          type: string
+          description: the date that
+          example: 11/10/2023
+      description: Model containg the quotation offered by the renovation company
+      example:
+        duration: 10
+        servicePrice: 1000
+        id: 10
+        startDate: 11/10/2023

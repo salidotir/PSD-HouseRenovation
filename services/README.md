@@ -1,9 +1,13 @@
 # Important info
 
-Report here the instructions on how to run the services after downloading from the repo
+## To run the services:
+* download and install dotnetcore 3.1 SDK
+https://dotnet.microsoft.com/en-us/download/dotnet/3.1
+* to compile and run a service navigate to the service's src directory and run the following command:
 
-Also provide the postman collections to run the services
-* [how to create a collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/)
-* [how to export a collection](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#exporting-collections)
+```bash
+dotenet run
+```
 
+The Postman collections can be found in /PostmanCollection
 
