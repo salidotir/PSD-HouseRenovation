@@ -19,7 +19,7 @@ paths:
       operationId: NewRequestForQuotationPOST
       parameters:
         - name: Address
-          in: query
+          in: body
           description: Address of the property
           required: true
           style: form
@@ -27,7 +27,7 @@ paths:
           schema:
             type: string
         - name: StartDate
-          in: query
+          in: body
           description: The Date that the company will start the project
           required: true
           style: form
@@ -36,7 +36,7 @@ paths:
             type: string
           example: 10/10/2023
         - name: Duration
-          in: query
+          in: body
           description: Project duration in days
           required: true
           style: form
@@ -45,7 +45,7 @@ paths:
             type: integer
           example: 60
         - name: Budget
-          in: query
+          in: body
           description: Max budget allocated by the houseowner to the project in Euroes
           required: true
           style: form
@@ -75,7 +75,7 @@ paths:
         operationId: newProjectPOST
         parameters:
         - name: id
-          in: query
+          in: body
           description: Id of the quotation request
           required: true
           style: form
