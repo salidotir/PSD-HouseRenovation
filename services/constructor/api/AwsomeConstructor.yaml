@@ -68,7 +68,7 @@ paths:
       - RequestForQuotation
       summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
       description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
-      operationId: deleteRequestForQuotationIdDELETE
+      operationId: RequestForQuotationIdDELETE
       parameters:
       - name: id
         in: path
