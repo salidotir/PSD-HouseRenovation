@@ -16,7 +16,7 @@ paths:
         - RequestForQuotation
       summary: Recives a new request for quotation from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
-      operationId: NewQuotationRequestPOST
+      operationId: QuotationRequestPOST
       requestBody:
         description: RequestForQuotation
         required: true
@@ -81,7 +81,7 @@ paths:
           example: 1
       responses:
         "200":
-          description: delete successfuly
+          description: deleted successfuly
         "404":
           description: Resource not found
         default:
@@ -94,7 +94,7 @@ paths:
         - Project
         summary: Request to start the project
         description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
-        operationId: newProjectPOST
+        operationId: ProjectPOST
         requestBody:
           description: RequestForQuotation
           required: true
