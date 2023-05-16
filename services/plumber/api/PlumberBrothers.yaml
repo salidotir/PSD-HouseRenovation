@@ -16,43 +16,14 @@ paths:
         - RequestForQuotation
       summary: Recives a new request for quotation from a HRC company and responds with a Quotation
       description: A HRC company can send a request for quotation via this API. PlumberBrothers returns a quotation object that contains a status field which indicates wethere request was accepted or rejected. In the event that the request is accepted the object contains the informayion about the Quotation. 
-      operationId: NewRequestForQuotationPOST
-      parameters:
-        - name: Address
-          in: body
-          description: Address of the property
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-        - name: StartDate
-          in: body
-          description: The Date that the company will start the project
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-          example: 10/10/2023
-        - name: Duration
-          in: body
-          description: Project duration in days
-          required: true
-          
-          explode: true
-          schema:
-            type: integer
-          example: 60
-        - name: Budget
-          in: body
-          description: Max budget allocated by the houseowner to the project in Euroes
-          required: true
-          
-          explode: true
-          schema:
-            type: number
-          example: 1000
+      operationId: RequestForQuotationPOST
+      requestBody:
+        description: RequestForQuotation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "200":
           description: Quotation
@@ -72,17 +43,14 @@ paths:
         - Project
         summary: Request to start a project
         description: In the event that a HRC decides PlumberBrothers as the winner, the HRC informs PlumberBrothersto start working on the project.
-        operationId: newProjectPOST
-        parameters:
-        - name: id
-          in: body
-          description: Id of the quotation request
+        operationId: ProjectPOST
+        requestBody:
+          description: RequestForQuotation
           required: true
-          
-          explode: true
-          schema:
-            type: integer
-          example: 1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
         responses:
           "200":
             description: ok
@@ -121,6 +89,23 @@ paths:
 
 components:
   schemas:
+    RequestForQuotation:
+      properties:
+        Address:
+          description: Address of the property
+          type: string
+        StartDate:
+          description: Start Date
+          type: string
+          example: 10/10/2023
+        Duration:
+          description: Duration in days
+          type: integer
+          example: 60
+        Budget:
+          description: Max budget in Euroes
+          type: number
+          example: 1000
     Quotation:
       properties:
         id:
@@ -148,3 +133,8 @@ components:
         servicePrice: 1000
         id: 10
         startDate: 11/10/2023
+    Project:
+      properties:
+        id:
+          type: integer
+          example: 10

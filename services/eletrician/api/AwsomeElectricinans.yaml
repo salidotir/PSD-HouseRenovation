@@ -17,42 +17,13 @@ paths:
       summary: Recives a new request for quotation from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: NewQuotationRequestPOST
-      parameters:
-        - name: Address
-          in: body
-          description: Address of the property
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-        - name: StartDate
-          in: body
-          description: Start Date
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-          example: 10/10/2023
-        - name: Duration
-          in: body
-          description: Duration in days
-          required: true
-          
-          explode: true
-          schema:
-            type: integer
-          example: 60
-        - name: Budget
-          in: body
-          description: Max budget in Euroes
-          required: true
-          
-          explode: true
-          schema:
-            type: number
-          example: 1000
+      requestBody:
+        description: RequestForQuotation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "201":
           description: Request submitted successfuly.
@@ -76,41 +47,13 @@ paths:
           schema:
             type: integer
           example: 1
-        - name: Address
-          in: body
-          description: Address of the property
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-        - name: StartDate
-          in: body
-          description: Start Date
-          required: true
-          
-          explode: true
-          schema:
-            type: string
-          example: 10/10/2023
-        - name: Duration
-          in: body
-          description: Duration in days
-          required: true
-          
-          explode: true
-          schema:
-            type: integer
-          example: 60
-        - name: Budget
-          in: body
-          description: Max budget in Euroes
-          required: true
-          
-          explode: true
-          schema:
-            type: number
-          example: 1000
+      requestBody:
+        description: RequestForQuotation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "200":
           description: Changes applied successfuly
@@ -152,16 +95,13 @@ paths:
         summary: Request to start the project
         description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
         operationId: newProjectPOST
-        parameters:
-        - name: id
-          in: body
-          description: Id of the quotation request
+        requestBody:
+          description: RequestForQuotation
           required: true
-          
-          explode: true
-          schema:
-            type: integer
-          example: 1
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
         responses:
           "200":
             description: ok
@@ -171,6 +111,23 @@ paths:
 
 components:
   schemas:
+    RequestForQuotation:
+      properties:
+        Address:
+          description: Address of the property
+          type: string
+        StartDate:
+          description: Start Date
+          type: string
+          example: 10/10/2023
+        Duration:
+          description: Duration in days
+          type: integer
+          example: 60
+        Budget:
+          description: Max budget in Euroes
+          type: number
+          example: 1000
     Quotation:
       properties:
         id:
@@ -194,3 +151,8 @@ components:
         servicePrice: 1000
         id: 10
         startDate: 11/10/2023
+    Project:
+      properties:
+        id:
+          type: integer
+          example: 10
