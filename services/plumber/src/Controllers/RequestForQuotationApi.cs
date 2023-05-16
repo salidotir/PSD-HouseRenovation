@@ -18,7 +18,6 @@ using PlumberBrothers.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using PlumberBrothers.Models;
-using PSD.Common;
 
 namespace PlumberBrothers.Controllers
 { 
@@ -32,20 +31,17 @@ namespace PlumberBrothers.Controllers
         /// Recives a new request for quotation from a HRC company and responds with a Quotation
         /// </summary>
         /// <remarks>A HRC company can send a request for quotation via this API. PlumberBrothers returns a quotation object that contains a status field which indicates wethere request was accepted or rejected. In the event that the request is accepted the object contains the informayion about the Quotation.</remarks>
-        /// <param name="address">Address of the property</param>
-        /// <param name="startDate">The Date that the company will start the project</param>
-        /// <param name="duration">Project duration in days</param>
-        /// <param name="budget">Max budget allocated by the houseowner to the project in Euroes</param>
+        /// <param name="body">RequestForQuotation</param>
         /// <response code="200">Quotation</response>
         /// <response code="202">Quotation not ready yet</response>
         /// <response code="0">Exception happened!</response>
         [HttpPost]
-        [Route("/v1/NewRequestForQuotation")]
+        [Route("/v1/RequestForQuotation")]
         [ValidateModelState]
-        [SwaggerOperation("NewRequestForQuotationPOST")]
+        [SwaggerOperation("RequestForQuotationPOST")]
         [SwaggerResponse(statusCode: 200, type: typeof(Quotation), description: "Quotation")]
-        public virtual IActionResult NewRequestForQuotationPOST([FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        {
+        public virtual IActionResult RequestForQuotationPOST([FromBody]RequestForQuotation body)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(Quotation));
 
@@ -55,15 +51,12 @@ namespace PlumberBrothers.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
             string exampleJson = null;
-            string preJSON = "{";
-            string postJSON = "}";
-            string JSON = $"\n  \"duration\" : {Common.GetRandomNumber(5, 20)},\n  \"servicePrice\" : {Common.GetRandomNumber(500, 3500)},\n  \"startDate\" : \"{Common.GetRandomNumber(1, 30)}/{Common.GetRandomNumber(1, 12)}/{Common.GetRandomNumber(2023, 2025)}\"\n";
             exampleJson = "{\n  \"duration\" : 10,\n  \"servicePrice\" : 1000,\n  \"id\" : 10,\n  \"startDate\" : \"11/10/2023\"\n}";
-
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
-            : default(Quotation);            //TODO: Change the data returned
-            return Ok(preJSON + JSON + postJSON);
+            
+                        var example = exampleJson != null
+                        ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
+                        : default(Quotation);            //TODO: Change the data returned
+            return new ObjectResult(example);
         }
     }
 }

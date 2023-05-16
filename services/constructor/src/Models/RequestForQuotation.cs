@@ -21,41 +21,42 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Model containg the quotation offered by the renovation company
+    /// 
     /// </summary>
     [DataContract]
-    public partial class Quotation : IEquatable<Quotation>
+    public partial class RequestForQuotation : IEquatable<RequestForQuotation>
     { 
         /// <summary>
-        /// Gets or Sets Id
+        /// Address of the property
         /// </summary>
+        /// <value>Address of the property</value>
 
-        [DataMember(Name="id")]
-        public int? Id { get; set; }
+        [DataMember(Name="Address")]
+        public string Address { get; set; }
 
         /// <summary>
-        /// the price for the service
+        /// Start Date
         /// </summary>
-        /// <value>the price for the service</value>
+        /// <value>Start Date</value>
 
-        [DataMember(Name="servicePrice")]
-        public decimal? ServicePrice { get; set; }
+        [DataMember(Name="StartDate")]
+        public string StartDate { get; set; }
 
         /// <summary>
-        /// duration in days
+        /// Duration in days
         /// </summary>
-        /// <value>duration in days</value>
+        /// <value>Duration in days</value>
 
-        [DataMember(Name="duration")]
+        [DataMember(Name="Duration")]
         public int? Duration { get; set; }
 
         /// <summary>
-        /// the date that
+        /// Max budget in Euroes
         /// </summary>
-        /// <value>the date that</value>
+        /// <value>Max budget in Euroes</value>
 
-        [DataMember(Name="startDate")]
-        public string StartDate { get; set; }
+        [DataMember(Name="Budget")]
+        public decimal? Budget { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,11 +65,11 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Quotation {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ServicePrice: ").Append(ServicePrice).Append("\n");
-            sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("class RequestForQuotation {\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  Budget: ").Append(Budget).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,29 +92,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Quotation)obj);
+            return obj.GetType() == GetType() && Equals((RequestForQuotation)obj);
         }
 
         /// <summary>
-        /// Returns true if Quotation instances are equal
+        /// Returns true if RequestForQuotation instances are equal
         /// </summary>
-        /// <param name="other">Instance of Quotation to be compared</param>
+        /// <param name="other">Instance of RequestForQuotation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Quotation other)
+        public bool Equals(RequestForQuotation other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
+                    Address == other.Address ||
+                    Address != null &&
+                    Address.Equals(other.Address)
                 ) && 
                 (
-                    ServicePrice == other.ServicePrice ||
-                    ServicePrice != null &&
-                    ServicePrice.Equals(other.ServicePrice)
+                    StartDate == other.StartDate ||
+                    StartDate != null &&
+                    StartDate.Equals(other.StartDate)
                 ) && 
                 (
                     Duration == other.Duration ||
@@ -121,9 +122,9 @@ namespace IO.Swagger.Models
                     Duration.Equals(other.Duration)
                 ) && 
                 (
-                    StartDate == other.StartDate ||
-                    StartDate != null &&
-                    StartDate.Equals(other.StartDate)
+                    Budget == other.Budget ||
+                    Budget != null &&
+                    Budget.Equals(other.Budget)
                 );
         }
 
@@ -137,14 +138,14 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (ServicePrice != null)
-                    hashCode = hashCode * 59 + ServicePrice.GetHashCode();
-                    if (Duration != null)
-                    hashCode = hashCode * 59 + Duration.GetHashCode();
+                    if (Address != null)
+                    hashCode = hashCode * 59 + Address.GetHashCode();
                     if (StartDate != null)
                     hashCode = hashCode * 59 + StartDate.GetHashCode();
+                    if (Duration != null)
+                    hashCode = hashCode * 59 + Duration.GetHashCode();
+                    if (Budget != null)
+                    hashCode = hashCode * 59 + Budget.GetHashCode();
                 return hashCode;
             }
         }
@@ -152,12 +153,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Quotation left, Quotation right)
+        public static bool operator ==(RequestForQuotation left, RequestForQuotation right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Quotation left, Quotation right)
+        public static bool operator !=(RequestForQuotation left, RequestForQuotation right)
         {
             return !Equals(left, right);
         }

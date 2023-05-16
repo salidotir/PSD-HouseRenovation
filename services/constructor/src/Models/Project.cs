@@ -18,13 +18,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace AwsomeConstructor.Models
 { 
     /// <summary>
-    /// Model containg the quotation offered by the renovation company
+    /// 
     /// </summary>
     [DataContract]
-    public partial class Quotation : IEquatable<Quotation>
+    public partial class Project : IEquatable<Project>
     { 
         /// <summary>
         /// Gets or Sets Id
@@ -34,41 +34,14 @@ namespace IO.Swagger.Models
         public int? Id { get; set; }
 
         /// <summary>
-        /// the price for the service
-        /// </summary>
-        /// <value>the price for the service</value>
-
-        [DataMember(Name="servicePrice")]
-        public decimal? ServicePrice { get; set; }
-
-        /// <summary>
-        /// duration in days
-        /// </summary>
-        /// <value>duration in days</value>
-
-        [DataMember(Name="duration")]
-        public int? Duration { get; set; }
-
-        /// <summary>
-        /// the date that
-        /// </summary>
-        /// <value>the date that</value>
-
-        [DataMember(Name="startDate")]
-        public string StartDate { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Quotation {\n");
+            sb.Append("class Project {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ServicePrice: ").Append(ServicePrice).Append("\n");
-            sb.Append("  Duration: ").Append(Duration).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,15 +64,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((Quotation)obj);
+            return obj.GetType() == GetType() && Equals((Project)obj);
         }
 
         /// <summary>
-        /// Returns true if Quotation instances are equal
+        /// Returns true if Project instances are equal
         /// </summary>
-        /// <param name="other">Instance of Quotation to be compared</param>
+        /// <param name="other">Instance of Project to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Quotation other)
+        public bool Equals(Project other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -109,21 +82,6 @@ namespace IO.Swagger.Models
                     Id == other.Id ||
                     Id != null &&
                     Id.Equals(other.Id)
-                ) && 
-                (
-                    ServicePrice == other.ServicePrice ||
-                    ServicePrice != null &&
-                    ServicePrice.Equals(other.ServicePrice)
-                ) && 
-                (
-                    Duration == other.Duration ||
-                    Duration != null &&
-                    Duration.Equals(other.Duration)
-                ) && 
-                (
-                    StartDate == other.StartDate ||
-                    StartDate != null &&
-                    StartDate.Equals(other.StartDate)
                 );
         }
 
@@ -139,12 +97,6 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (Id != null)
                     hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (ServicePrice != null)
-                    hashCode = hashCode * 59 + ServicePrice.GetHashCode();
-                    if (Duration != null)
-                    hashCode = hashCode * 59 + Duration.GetHashCode();
-                    if (StartDate != null)
-                    hashCode = hashCode * 59 + StartDate.GetHashCode();
                 return hashCode;
             }
         }
@@ -152,12 +104,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(Quotation left, Quotation right)
+        public static bool operator ==(Project left, Project right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(Quotation left, Quotation right)
+        public static bool operator !=(Project left, Project right)
         {
             return !Equals(left, right);
         }

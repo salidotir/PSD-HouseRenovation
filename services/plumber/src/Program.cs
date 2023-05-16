@@ -4,7 +4,7 @@ using Microsoft.AspNetCore;
 namespace PlumberBrothers
 {
     /// <summary>
-    /// Program
+    /// Programs
     /// </summary>
     public class Program
     {

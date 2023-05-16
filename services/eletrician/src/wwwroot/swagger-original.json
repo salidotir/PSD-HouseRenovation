@@ -14,56 +14,23 @@
     "name" : "Project"
   } ],
   "paths" : {
-    "/NewRequestForQuotation" : {
+    "/RequestForQuotation" : {
       "post" : {
         "tags" : [ "RequestForQuotation" ],
         "summary" : "Recives a new request for quotation from a HRC company and responds whether the request was submitted or not",
-        "description" : "A HRC can sends a request for quoation via this API. AwsomeElectricians return whether the request was submitted or an exception happened.",
+        "description" : "A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.",
         "operationId" : "NewQuotationRequestPOST",
-        "parameters" : [ {
-          "name" : "Address",
-          "in" : "query",
-          "description" : "Address of the property",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "StartDate",
-          "in" : "query",
-          "description" : "Start Date",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
+        "requestBody" : {
+          "description" : "RequestForQuotation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RequestForQuotation"
+              }
+            }
           },
-          "example" : "10/10/2023"
-        }, {
-          "name" : "Duration",
-          "in" : "query",
-          "description" : "Duration in days",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          },
-          "example" : 60
-        }, {
-          "name" : "Budget",
-          "in" : "query",
-          "description" : "Max budget in Euroes",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "number"
-          },
-          "example" : 1000
-        } ],
+          "required" : true
+        },
         "responses" : {
           "201" : {
             "description" : "Request submitted successfuly."
@@ -75,67 +42,35 @@
         "x-swagger-router-controller" : "Quotation"
       }
     },
-    "/EditRequestForQuotation" : {
+    "/RequestForQuotation/{id}" : {
       "put" : {
         "tags" : [ "RequestForQuotation" ],
         "summary" : "Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not",
-        "description" : "A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeElectricians return whether the request was submitted or an exception happened.",
+        "description" : "A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.",
         "operationId" : "editQuotationPUT",
         "parameters" : [ {
-          "name" : "QuotationRequestId",
-          "in" : "query",
+          "name" : "id",
+          "in" : "path",
           "description" : "Id of the quotation request",
           "required" : true,
-          "style" : "form",
+          "style" : "simple",
           "explode" : true,
           "schema" : {
             "type" : "integer"
           },
           "example" : 1
-        }, {
-          "name" : "Address",
-          "in" : "query",
-          "description" : "Address of the property",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "StartDate",
-          "in" : "query",
-          "description" : "Start Date",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string"
-          },
-          "example" : "10/10/2023"
-        }, {
-          "name" : "Duration",
-          "in" : "query",
-          "description" : "Duration in days",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
-          },
-          "example" : 60
-        }, {
-          "name" : "Budget",
-          "in" : "query",
-          "description" : "Max budget in Euroes",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "number"
-          },
-          "example" : 1000
         } ],
+        "requestBody" : {
+          "description" : "RequestForQuotation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RequestForQuotation"
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "Changes applied successfuly"
@@ -148,13 +83,11 @@
           }
         },
         "x-swagger-router-controller" : "Quotation"
-      }
-    },
-    "/DeleteRequestForQuotation/{id}" : {
+      },
       "delete" : {
         "tags" : [ "RequestForQuotation" ],
         "summary" : "Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.",
-        "description" : "A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeElectricians return whether the request was deleted or exception happened.",
+        "description" : "A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.",
         "operationId" : "deleteRequestForQuotationIdDELETE",
         "parameters" : [ {
           "name" : "id",
@@ -182,24 +115,23 @@
         "x-swagger-router-controller" : "Quotation"
       }
     },
-    "/NewProject" : {
+    "/Project" : {
       "post" : {
         "tags" : [ "Project" ],
         "summary" : "Request to start the project",
         "description" : "In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.",
         "operationId" : "newProjectPOST",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "query",
-          "description" : "Id of the quotation request",
-          "required" : true,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "integer"
+        "requestBody" : {
+          "description" : "RequestForQuotation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Project"
+              }
+            }
           },
-          "example" : 1
-        } ],
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "ok"
@@ -214,6 +146,29 @@
   },
   "components" : {
     "schemas" : {
+      "RequestForQuotation" : {
+        "properties" : {
+          "Address" : {
+            "type" : "string",
+            "description" : "Address of the property"
+          },
+          "StartDate" : {
+            "type" : "string",
+            "description" : "Start Date",
+            "example" : "10/10/2023"
+          },
+          "Duration" : {
+            "type" : "integer",
+            "description" : "Duration in days",
+            "example" : 60
+          },
+          "Budget" : {
+            "type" : "number",
+            "description" : "Max budget in Euroes",
+            "example" : 1000
+          }
+        }
+      },
       "Quotation" : {
         "properties" : {
           "id" : {
@@ -242,6 +197,14 @@
           "servicePrice" : 1000,
           "id" : 10,
           "startDate" : "11/10/2023"
+        }
+      },
+      "Project" : {
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "example" : 10
+          }
         }
       }
     }

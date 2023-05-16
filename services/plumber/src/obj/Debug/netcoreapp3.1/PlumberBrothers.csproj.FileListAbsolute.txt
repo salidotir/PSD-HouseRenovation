@@ -1,6 +1,0 @@
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.csprojAssemblyReference.cache
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.AssemblyInfoInputs.cache
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.AssemblyInfo.cs
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.csproj.CoreCompileInputs.cache
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\plumber\src\obj\Debug\netcoreapp3.1\PlumberBrothers.MvcApplicationPartsAssemblyInfo.cache
