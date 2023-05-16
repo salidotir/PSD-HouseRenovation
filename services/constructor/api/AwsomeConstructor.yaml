@@ -22,7 +22,7 @@ paths:
         in: body
         description: Address of the property
         required: true
-        style: form
+        
         explode: true
         schema:
           type: string
@@ -30,7 +30,7 @@ paths:
         in: body
         description: Start Date
         required: true
-        style: form
+        
         explode: true
         schema:
           type: string
@@ -39,7 +39,7 @@ paths:
         in: body
         description: Duration in days
         required: true
-        style: form
+        
         explode: true
         schema:
           type: integer
@@ -48,7 +48,7 @@ paths:
         in: body
         description: Max budget in Euroes
         required: true
-        style: form
+        
         explode: true
         schema:
           type: number
@@ -80,7 +80,7 @@ paths:
         in: body
         description: Address of the property
         required: true
-        style: form
+        
         explode: true
         schema:
           type: string
@@ -88,7 +88,7 @@ paths:
         in: body
         description: Start Date
         required: true
-        style: form
+        
         explode: true
         schema:
           type: string
@@ -97,7 +97,7 @@ paths:
         in: body
         description: Duration in days
         required: true
-        style: form
+        
         explode: true
         schema:
           type: integer
@@ -106,7 +106,7 @@ paths:
         in: body
         description: Max budget in Euroes
         required: true
-        style: form
+        
         explode: true
         schema:
           type: number
@@ -187,7 +187,7 @@ paths:
         in: query
         description: Id of the quotation request
         required: true
-        style: form
+        
         explode: true
         schema:
           type: integer

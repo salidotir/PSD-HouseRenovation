@@ -22,7 +22,7 @@ paths:
           in: body
           description: Address of the property
           required: true
-          style: form
+          
           explode: true
           schema:
             type: string
@@ -30,7 +30,7 @@ paths:
           in: body
           description: The Date that the company will start the project
           required: true
-          style: form
+          
           explode: true
           schema:
             type: string
@@ -39,7 +39,7 @@ paths:
           in: body
           description: Project duration in days
           required: true
-          style: form
+          
           explode: true
           schema:
             type: integer
@@ -48,7 +48,7 @@ paths:
           in: body
           description: Max budget allocated by the houseowner to the project in Euroes
           required: true
-          style: form
+          
           explode: true
           schema:
             type: number
@@ -78,7 +78,7 @@ paths:
           in: body
           description: Id of the quotation request
           required: true
-          style: form
+          
           explode: true
           schema:
             type: integer
@@ -102,7 +102,7 @@ paths:
         in: path
         description: Id of the quotation request
         required: true
-        style: simple
+        
         explode: false
         schema:
           type: integer
