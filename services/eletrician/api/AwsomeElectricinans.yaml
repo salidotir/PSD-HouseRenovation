@@ -10,7 +10,7 @@ tags:
 - name: Project
 
 paths:
-  /NewRequestForQuotation:
+  /RequestForQuotation:
     post:
       tags:
         - RequestForQuotation
@@ -60,7 +60,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /EditRequestForQuotation:
+  /RequestForQuotation/{id}:
     put:
       tags:
         - RequestForQuotation
@@ -69,10 +69,9 @@ paths:
       operationId: editQuotationPUT
       parameters:
         - name: QuotationRequestId
-          in: body
+          in: path
           description: Id of the quotation request
           required: true
-          style: form
           explode: true
           schema:
             type: integer
@@ -121,7 +120,6 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /DeleteRequestForQuotation/{id}:
     delete:
       tags:
         - RequestForQuotation
@@ -129,7 +127,7 @@ paths:
       description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
       operationId: deleteRequestForQuotationIdDELETE
       parameters:
-        - name: id
+        - name: QuotationRequestId
           in: path
           description: Id of the quotation request
           required: true
@@ -147,7 +145,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /NewProject:
+  /Project:
       post:
         tags:
         - Project

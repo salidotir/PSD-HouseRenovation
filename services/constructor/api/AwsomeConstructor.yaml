@@ -10,7 +10,7 @@ tags:
 - name: Project
 
 paths:
-  /NewRequestForQuotation:
+  /RequestForQuotation:
     post:
       tags:
       - RequestForQuotation
@@ -60,7 +60,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /EditRequestForQuotation:
+  /RequestForQuotation/{id}:
     put:
       tags:
       - RequestForQuotation
@@ -69,10 +69,9 @@ paths:
       operationId: editRequestForQuotationPUT
       parameters:
       - name: QuotationRequestId
-        in: body
+        in: path
         description: Id of the quotation request
         required: true
-        style: form
         explode: true
         schema:
           type: integer
@@ -121,7 +120,6 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /DeleteRequestForQuotation/{id}:
     delete:
       tags:
       - RequestForQuotation
@@ -147,7 +145,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /GetQuotation/{id}:
+  /Quotation/{id}:
     get:
       tags:
       - RequestForQuotation
@@ -177,7 +175,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /NewProject:
+  /Project:
     post:
       tags:
       - Project
@@ -201,7 +199,7 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Project
 
-  /ProjectCompletionStatus/{id}:
+  /Project/{id}:
     get:
       tags:
       - Project
