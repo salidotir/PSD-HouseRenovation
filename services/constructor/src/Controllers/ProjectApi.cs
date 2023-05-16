@@ -39,20 +39,17 @@ namespace AwsomeConstructor.Controllers
         [ValidateModelState]
         [SwaggerOperation("ProjectCompletionStatusIdGET")]
         [SwaggerResponse(statusCode: 200, type: typeof(bool?), description: "Ok")]
-        public virtual IActionResult ProjectCompletionStatusIdGET([FromRoute][Required]int? id)
+        public virtual IActionResult ProjectGET([FromRoute][Required]int? id)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(bool?));
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
-            string exampleJson = null;
-            exampleJson = "true";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<bool?>(exampleJson)
-                        : default(bool?);            //TODO: Change the data returned
-            return new ObjectResult(example);
+            bool status = id % 2 == 0 ? true : false;
+
+
+            return Ok(status);
         }
 
         /// <summary>
@@ -74,7 +71,7 @@ namespace AwsomeConstructor.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok("Request Inserted Successfully");
         }
     }
 }

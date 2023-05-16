@@ -64,7 +64,7 @@ paths:
       - Project
       summary: Gets completion status of the project
       description: The HRC company can check wether the project is completed or not.
-      operationId: projectCompletionStatusIdGET
+      operationId: ProjectIdGET
       parameters:
       - name: id
         in: path

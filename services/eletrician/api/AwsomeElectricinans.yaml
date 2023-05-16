@@ -37,7 +37,7 @@ paths:
         - RequestForQuotation
       summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
-      operationId: editQuotationPUT
+      operationId: QuotationPUT
       parameters:
         - name: id
           in: path

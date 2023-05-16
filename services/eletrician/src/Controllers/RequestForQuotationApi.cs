@@ -38,8 +38,8 @@ namespace IO.Swagger.Controllers
         [HttpDelete]
         [Route("/v1/RequestForQuotation/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("DeleteRequestForQuotationIdDELETE")]
-        public virtual IActionResult DeleteRequestForQuotationIdDELETE([FromRoute][Required]int? id)
+        [SwaggerOperation("RequestForQuotationIdDELETE")]
+        public virtual IActionResult RequestForQuotationIdDELETE([FromRoute][Required]int? id)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
@@ -50,7 +50,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok($"Request with Id {id} deleted successfully");
         }
 
         /// <summary>
@@ -65,8 +65,8 @@ namespace IO.Swagger.Controllers
         [HttpPut]
         [Route("/v1/RequestForQuotation/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("EditQuotationPUT")]
-        public virtual IActionResult EditQuotationPUT([FromBody]RequestForQuotation body, [FromRoute][Required]int? id)
+        [SwaggerOperation("QuotationPUT")]
+        public virtual IActionResult QuotationPUT([FromBody]RequestForQuotation body, [FromRoute][Required]int? id)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
@@ -77,7 +77,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+             return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
 
         /// <summary>
@@ -90,8 +90,8 @@ namespace IO.Swagger.Controllers
         [HttpPost]
         [Route("/v1/RequestForQuotation")]
         [ValidateModelState]
-        [SwaggerOperation("NewQuotationRequestPOST")]
-        public virtual IActionResult NewQuotationRequestPOST([FromBody]RequestForQuotation body)
+        [SwaggerOperation("QuotationRequestPOST")]
+        public virtual IActionResult QuotationRequestPOST([FromBody]RequestForQuotation body)
         { 
             //TODO: Uncomment the next line to return response 201 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(201);
@@ -99,7 +99,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
     }
 }

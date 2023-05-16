@@ -18,6 +18,7 @@ using AwsomeElectricians.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using AwsomeElectricians.Models;
+using PSD.Common;
 
 namespace AwsomeElectricians.Controllers
 { 
@@ -50,7 +51,7 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+             return Ok($"Request with Id {id} deleted successfully");
         }
 
         /// <summary>
@@ -77,12 +78,15 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
             string exampleJson = null;
+            string preJSON = "{";
+            string postJSON = "}";
+            string JSON = $"\n  \"duration\" : {Common.GetRandomNumber(5, 20)},\n  \"servicePrice\" : {Common.GetRandomNumber(500, 3500)},\n  \"id\" : {id},\n  \"startDate\" : \"{Common.GetRandomNumber(1, 30)}/{Common.GetRandomNumber(1, 12)}/{Common.GetRandomNumber(2023, 2025)}\"\n";
             exampleJson = "{\n  \"duration\" : 10,\n  \"servicePrice\" : 1000,\n  \"id\" : 10,\n  \"startDate\" : \"11/10/2023\"\n}";
-            
-                        var example = exampleJson != null
-                        ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
-                        : default(Quotation);            //TODO: Change the data returned
-            return new ObjectResult(example);
+
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<Quotation>(exampleJson)
+            : default(Quotation);            //TODO: Change the data returned
+            return Ok(preJSON + JSON + postJSON);
         }
 
         /// <summary>
@@ -104,7 +108,7 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+             return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
 
         /// <summary>
@@ -131,7 +135,7 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            throw new NotImplementedException();
+            return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
         }
     }
 }
