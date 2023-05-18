@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2ec36148-5301-46be-97ac-41ce62921456",
+		"_postman_id": "c5c8740b-14e6-405e-b843-2fa32f85fc90",
 		"name": "AwsomeConstructors",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -40,7 +40,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/NewRequestForQuotation",
+					"raw": "http://api.AwsomeConstuctors.com/RequestForQuotation",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -48,7 +48,7 @@
 						"com"
 					],
 					"path": [
-						"NewRequestForQuotation"
+						"RequestForQuotation"
 					]
 				}
 			},
@@ -95,7 +95,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/EditRequestForQuotation",
+					"raw": "http://api.AwsomeConstuctors.com/RequestForQuotation",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -103,7 +103,7 @@
 						"com"
 					],
 					"path": [
-						"EditRequestForQuotation"
+						"RequestForQuotation"
 					]
 				}
 			},
@@ -115,7 +115,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/DeleteRequestForQuotation/1",
+					"raw": "http://api.AwsomeConstuctors.com/RequestForQuotation/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -123,7 +123,7 @@
 						"com"
 					],
 					"path": [
-						"DeleteRequestForQuotation",
+						"RequestForQuotation",
 						"1"
 					]
 				}
@@ -136,7 +136,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/GetQuotation/1",
+					"raw": "http://api.AwsomeConstuctors.com/Quotation/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -144,7 +144,7 @@
 						"com"
 					],
 					"path": [
-						"GetQuotation",
+						"Quotation",
 						"1"
 					]
 				}
@@ -164,7 +164,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/NewProject/1",
+					"raw": "http://api.AwsomeConstuctors.com/Project/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -172,7 +172,7 @@
 						"com"
 					],
 					"path": [
-						"NewProject",
+						"Project",
 						"1"
 					]
 				}
@@ -185,7 +185,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.AwsomeConstuctors.com/ProjectCompletionStatus/1",
+					"raw": "http://api.AwsomeConstuctors.com/Project/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -193,7 +193,7 @@
 						"com"
 					],
 					"path": [
-						"ProjectCompletionStatus",
+						"Project",
 						"1"
 					]
 				}

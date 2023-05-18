@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "50b0b42c-3426-469a-895e-f1fe6a3ebad5",
+		"_postman_id": "73ab402a-0d85-442e-bc1b-accc35ba86bd",
 		"name": "PlumberBrothers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -40,7 +40,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://api.PlumberBrothers.com/NewRequestForQuotation",
+					"raw": "http://api.PlumberBrothers.com/RequestForQuotation",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -48,7 +48,7 @@
 						"com"
 					],
 					"path": [
-						"NewRequestForQuotation"
+						"RequestForQuotation"
 					]
 				}
 			},
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.PlumberBrothers.com/NewProject/1",
+					"raw": "http://api.PlumberBrothers.com/Project/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -68,7 +68,7 @@
 						"com"
 					],
 					"path": [
-						"NewProject",
+						"Project",
 						"1"
 					]
 				}
@@ -81,7 +81,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://api.PlumberBrothers.com/ProjectCompletionStatus/1",
+					"raw": "http://api.PlumberBrothers.com/Project/1",
 					"protocol": "http",
 					"host": [
 						"api",
@@ -89,7 +89,7 @@
 						"com"
 					],
 					"path": [
-						"ProjectCompletionStatus",
+						"Project",
 						"1"
 					]
 				}
