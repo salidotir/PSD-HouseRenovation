@@ -66,32 +66,17 @@ namespace AwsomeElectricians
                 })
                 .AddXmlSerializerFormatters();
 
-
-            services
-                .AddSwaggerGen(c =>
+            //services.AddSwaggerGen();
+            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    c.SwaggerDoc("1.0", new OpenApiInfo
-                    {
-                        Version = "1.0",
-                        Title = "AwsomeElectricians",
-                        Description = "AwsomeElectricians (ASP.NET Core 3.1)",
-                        Contact = new OpenApiContact()
-                        {
-                           Name = "Swagger Codegen Contributors",
-                           Url = new Uri("https://github.com/swagger-api/swagger-codegen"),
-                           Email = ""
-                        },
-                        TermsOfService = new Uri("")
-                    });
-                    c.CustomSchemaIds(type => type.FullName);
-                    c.IncludeXmlComments($"{AppContext.BaseDirectory}{Path.DirectorySeparatorChar}{_hostingEnv.ApplicationName}.xml");
-                    // Sets the basePath property in the Swagger document generated
-                    c.DocumentFilter<BasePathFilter>("/v1");
-
-                    // Include DataAnnotation attributes on Controller Action parameters as Swagger validation rules (e.g required, pattern, ..)
-                    // Use [ValidateModelState] on Actions to actually validate it in C# as well!
-                    c.OperationFilter<GeneratePathParamsValidationFilter>();
+                    Version = "v1",
+                    Title = "Awsome Electrician",
+                    Description = "A simple Constructor comapny",
                 });
+            });
         }
 
         /// <summary>
@@ -110,13 +95,8 @@ namespace AwsomeElectricians
             app.UseAuthorization();
 
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                //TODO: Either use the SwaggerGen generated Swagger contract (generated from C# classes)
-                c.SwaggerEndpoint("/swagger/1.0/swagger.json", "AwsomeElectricians");
-
-                //TODO: Or alternatively use the original Swagger contract that's included in the static files
-                // c.SwaggerEndpoint("/swagger-original.json", "AwsomeElectricians Original");
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
             });
 
             //TODO: Use Https Redirection

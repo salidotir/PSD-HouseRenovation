@@ -6,3 +6,12 @@ C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\servic
 C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csproj.CoreCompileInputs.cache
 C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.dll
 C:\Users\surface\Downloads\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.pdb
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.deps.json
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.dll
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.pdb
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.AssemblyInfoInputs.cache
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.AssemblyInfo.cs
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csproj.CoreCompileInputs.cache
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.dll
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.pdb
+C:\Users\surface\Desktop\Process and Service Design\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csprojAssemblyReference.cache

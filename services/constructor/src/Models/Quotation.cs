@@ -18,7 +18,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 
-namespace IO.Swagger.Models
+namespace AwsomeConstructor.Models
 { 
     /// <summary>
     /// Model containg the quotation offered by the renovation company

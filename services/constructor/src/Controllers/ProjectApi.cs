@@ -14,7 +14,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using AwsomeElectricians.Attributes;
+using AwsomeConstructor.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using AwsomeConstructor.Models;

@@ -14,12 +14,12 @@ using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
-using IO.Swagger.Attributes;
+using AwsomeElectricians.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
-using IO.Swagger.Models;
+using AwsomeElectricians.Models;
 
-namespace IO.Swagger.Controllers
+namespace AwsomeElectricians.Controllers
 { 
     /// <summary>
     /// 
@@ -77,7 +77,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-             return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
+             return Ok(($"Data Modified Successfuly \n{id} \n{body.Address} \n{body.StartDate} \n{body.Duration} \n{body.Budget}").ToString());
         }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
+            return Ok(($"Data Inserted Successfuly \n{body.Address} \n{body.StartDate} \n{body.Duration} \n{body.Budget}").ToString());
         }
     }
 }
