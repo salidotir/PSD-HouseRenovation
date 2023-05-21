@@ -73,7 +73,7 @@ namespace AwsomeConstructor
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Awsome Constructor",
+                    Title = "Awsome Electrician",
                     Description = "A simple Constructor comapny",
                 });
             });

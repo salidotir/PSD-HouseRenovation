@@ -7,7 +7,7 @@ This company offers an asynchronous API to the HRC
 ### Quotation:
 * The HRC can create a request for quotation to the Constructing company. 
 * The Constructing company then has to decide and prepare a quotation containg their offer. 
-* The HRC can edit or withdraw(delete) their request for quotation before the Constructor company offers their quotation.
+* The Householder can send edit or withdraw(delete) request to HRC before a quotation is issued.
 
 * The house renovation company can priodicaly check to see if the Constructor company has offered a quotation to their request
 

@@ -10,49 +10,20 @@ tags:
 - name: Project
 
 paths:
-  /NewRequestForQuotation:
+  /RequestForQuotation:
     post:
       tags:
       - RequestForQuotation
       summary: Recives a new request for quoation from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
-      operationId: newRequestForQuotationPOST
-      parameters:
-      - name: Address
-        in: query
-        description: Address of the property
+      operationId: RequestForQuotationPOST
+      requestBody:
+        description: RequestForQuotation
         required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: StartDate
-        in: query
-        description: Start Date
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: 10/10/2023
-      - name: Duration
-        in: query
-        description: Duration in days
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-        example: 60
-      - name: Budget
-        in: query
-        description: Max budget in Euroes
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: number
-        example: 1000
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "201":
           description: Request submitted successfuly.
@@ -60,58 +31,29 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /EditRequestForQuotation:
+  /RequestForQuotation/{id}:
     put:
       tags:
       - RequestForQuotation
       summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
-      operationId: editRequestForQuotationPUT
+      operationId: RequestForQuotationPUT
       parameters:
-      - name: QuotationRequestId
-        in: query
+      - name: id
+        in: path
         description: Id of the quotation request
         required: true
-        style: form
         explode: true
         schema:
           type: integer
         example: 1
-      - name: Address
-        in: query
-        description: Address of the property
+      requestBody:
+        description: RequestForQuotation
         required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: StartDate
-        in: query
-        description: Start Date
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
-        example: 10/10/2023
-      - name: Duration
-        in: query
-        description: Duration in days
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-        example: 60
-      - name: Budget
-        in: query
-        description: Max budget in Euroes
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: number
-        example: 1000
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "200":
           description: Changes applied successfuly
@@ -121,13 +63,12 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /DeleteRequestForQuotation/{id}:
     delete:
       tags:
       - RequestForQuotation
       summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
       description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
-      operationId: deleteRequestForQuotationIdDELETE
+      operationId: RequestForQuotationIdDELETE
       parameters:
       - name: id
         in: path
@@ -140,20 +81,20 @@ paths:
         example: 1
       responses:
         "200":
-          description: delete successfuly
+          description: Deleted successfuly
         "404":
           description: Resource not found
         default:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /GetQuotation/{id}:
+  /Quotation/{id}:
     get:
       tags:
       - RequestForQuotation
       summary: Recives a request for offering the quotation of the request for quotaion with specific id from a HRC company and responds with the Quotation.
       description: A HRC can sends a request for offering the Qutation of the request for quoation with specific id via this API. AwsomeConstructor responds with the Quotation.
-      operationId: getQuotationIdGET
+      operationId: QuotationIdGET
       parameters:
       - name: id
         in: path
@@ -177,23 +118,20 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Quotation
 
-  /NewProject:
+  /Project:
     post:
       tags:
       - Project
       summary: Request to start the project
       description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
-      operationId: newProjectPOST
-      parameters:
-      - name: id
-        in: query
-        description: Id of the quotation request
+      operationId: ProjectPOST
+      requestBody:
+        description: RequestForQuotation
         required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-        example: 1
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
       responses:
         "200":
           description: ok
@@ -201,13 +139,13 @@ paths:
           description: Exception happened!
       x-swagger-router-controller: Project
 
-  /ProjectCompletionStatus/{id}:
+  /Project/{id}:
     get:
       tags:
       - Project
       summary: Gets completion status of the project
       description: The HRC company can check wether the project is completed or not.  
-      operationId: projectCompletionStatusIdGET
+      operationId: projectGET
       parameters:
       - name: id
         in: path
@@ -232,6 +170,23 @@ paths:
 
 components:
   schemas:
+    RequestForQuotation:
+      properties:
+        Address:
+          description: Address of the property
+          type: string
+        StartDate:
+          description: Start Date
+          type: string
+          example: 10/10/2023
+        Duration:
+          description: Duration in days
+          type: integer
+          example: 60
+        Budget:
+          description: Max budget in Euroes
+          type: number
+          example: 1000
     Quotation:
       properties:
         id:
@@ -255,3 +210,8 @@ components:
         servicePrice: 1000
         id: 10
         startDate: 11/10/2023
+    Project:
+      properties:
+        id:
+          type: integer
+          example: 10

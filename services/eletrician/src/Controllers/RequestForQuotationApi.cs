@@ -30,17 +30,17 @@ namespace AwsomeElectricians.Controllers
         /// <summary>
         /// Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
         /// </summary>
-        /// <remarks>A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeElectricians return whether the request was deleted or exception happened.</remarks>
+        /// <remarks>A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.</remarks>
         /// <param name="id">Id of the quotation request</param>
         /// <response code="200">delete successfuly</response>
         /// <response code="404">Resource not found</response>
         /// <response code="0">Exception happened!</response>
         [HttpDelete]
-        [Route("/v1/DeleteRequestForQuotation/{id}")]
+        [Route("/v1/RequestForQuotation/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("DeleteRequestForQuotationIdDELETE")]
-        public virtual IActionResult DeleteRequestForQuotationIdDELETE([FromRoute][Required]int? id)
-        {
+        [SwaggerOperation("RequestForQuotationIdDELETE")]
+        public virtual IActionResult RequestForQuotationIdDELETE([FromRoute][Required]int? id)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -56,21 +56,18 @@ namespace AwsomeElectricians.Controllers
         /// <summary>
         /// Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
         /// </summary>
-        /// <remarks>A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeElectricians return whether the request was submitted or an exception happened.</remarks>
-        /// <param name="quotationRequestId">Id of the quotation request</param>
-        /// <param name="address">Address of the property</param>
-        /// <param name="startDate">Start Date</param>
-        /// <param name="duration">Duration in days</param>
-        /// <param name="budget">Max budget in Euroes</param>
+        /// <remarks>A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.</remarks>
+        /// <param name="body">RequestForQuotation</param>
+        /// <param name="id">Id of the quotation request</param>
         /// <response code="200">Changes applied successfuly</response>
         /// <response code="404">Resource not found</response>
         /// <response code="0">Exception happened!</response>
         [HttpPut]
-        [Route("/v1/EditRequestForQuotation")]
+        [Route("/v1/RequestForQuotation/{id}")]
         [ValidateModelState]
-        [SwaggerOperation("EditQuotationPUT")]
-        public virtual IActionResult EditQuotationPUT([FromQuery][Required()]int? quotationRequestId, [FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        {
+        [SwaggerOperation("QuotationPUT")]
+        public virtual IActionResult QuotationPUT([FromBody]RequestForQuotation body, [FromRoute][Required]int? id)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 
@@ -80,32 +77,29 @@ namespace AwsomeElectricians.Controllers
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            return Ok(($"Data Modified Successfuly \n{quotationRequestId} \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
+             return Ok(($"Data Modified Successfuly \n{id} \n{body.Address} \n{body.StartDate} \n{body.Duration} \n{body.Budget}").ToString());
         }
 
         /// <summary>
         /// Recives a new request for quotation from a HRC company and responds whether the request was submitted or not
         /// </summary>
-        /// <remarks>A HRC can sends a request for quoation via this API. AwsomeElectricians return whether the request was submitted or an exception happened.</remarks>
-        /// <param name="address">Address of the property</param>
-        /// <param name="startDate">Start Date</param>
-        /// <param name="duration">Duration in days</param>
-        /// <param name="budget">Max budget in Euroes</param>
+        /// <remarks>A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.</remarks>
+        /// <param name="body">RequestForQuotation</param>
         /// <response code="201">Request submitted successfuly.</response>
         /// <response code="0">Exception happened!</response>
         [HttpPost]
-        [Route("/v1/NewRequestForQuotation")]
+        [Route("/v1/RequestForQuotation")]
         [ValidateModelState]
-        [SwaggerOperation("NewQuotationRequestPOST")]
-        public virtual IActionResult NewQuotationRequestPOST([FromQuery][Required()]string address, [FromQuery][Required()]string startDate, [FromQuery][Required()]int? duration, [FromQuery][Required()]decimal? budget)
-        {
+        [SwaggerOperation("QuotationRequestPOST")]
+        public virtual IActionResult QuotationRequestPOST([FromBody]RequestForQuotation body)
+        { 
             //TODO: Uncomment the next line to return response 201 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(201);
 
             //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(0);
 
-            return Ok(($"Data Inserted Successfuly \n{address} \n{startDate} \n{duration} \n{budget}").ToString());
+            return Ok(($"Data Inserted Successfuly \n{body.Address} \n{body.StartDate} \n{body.Duration} \n{body.Budget}").ToString());
         }
     }
 }

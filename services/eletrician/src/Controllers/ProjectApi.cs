@@ -31,15 +31,15 @@ namespace AwsomeElectricians.Controllers
         /// Request to start the project
         /// </summary>
         /// <remarks>In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.</remarks>
-        /// <param name="id">Id of the quotation request</param>
+        /// <param name="body">RequestForQuotation</param>
         /// <response code="200">ok</response>
         /// <response code="0">Exception happened!</response>
         [HttpPost]
-        [Route("/v1/NewProject")]
+        [Route("/v1/Project")]
         [ValidateModelState]
         [SwaggerOperation("NewProjectPOST")]
-        public virtual IActionResult NewProjectPOST([FromQuery][Required()]int? id)
-        {
+        public virtual IActionResult ProjectPOST([FromBody]Project body)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
 

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore;
 
 namespace AwsomeConstructor
+
 {
     /// <summary>
     /// Program

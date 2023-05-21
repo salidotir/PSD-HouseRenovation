@@ -20,34 +20,13 @@ using Microsoft.AspNetCore.Authorization;
 using AwsomeConstructor.Models;
 
 namespace AwsomeConstructor.Controllers
-{
+{ 
     /// <summary>
     /// 
     /// </summary>
     [ApiController]
     public class ProjectApiController : ControllerBase
-    {
-        /// <summary>
-        /// Request to start the project
-        /// </summary>
-        /// <remarks>In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.</remarks>
-        /// <param name="id">Id of the quotation request</param>
-        /// <response code="200">ok</response>
-        /// <response code="0">Exception happened!</response>
-        [HttpPost]
-        [Route("/v1/NewProject")]
-        [ValidateModelState]
-        [SwaggerOperation("NewProjectPOST")]
-        public virtual IActionResult NewProjectPOST([FromQuery][Required()] int? id)
-        {
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(0);
-            return Ok("Request Inserted Successfully");
-        }
-
+    { 
         /// <summary>
         /// Gets completion status of the project
         /// </summary>
@@ -56,12 +35,12 @@ namespace AwsomeConstructor.Controllers
         /// <response code="200">Ok</response>
         /// <response code="0">Exception happened!</response>
         [HttpGet]
-        [Route("/v1/ProjectCompletionStatusById/{id}")]
+        [Route("/v1/Project/{id}")]
         [ValidateModelState]
         [SwaggerOperation("ProjectCompletionStatusIdGET")]
         [SwaggerResponse(statusCode: 200, type: typeof(bool?), description: "Ok")]
-        public virtual IActionResult ProjectCompletionStatusByIdGET([FromRoute][Required] int? id)
-        {
+        public virtual IActionResult ProjectGET([FromRoute][Required]int? id)
+        { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(bool?));
 
@@ -71,7 +50,28 @@ namespace AwsomeConstructor.Controllers
 
 
             return Ok(status);
+        }
 
+        /// <summary>
+        /// Request to start the project
+        /// </summary>
+        /// <remarks>In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.</remarks>
+        /// <param name="body">RequestForQuotation</param>
+        /// <response code="200">ok</response>
+        /// <response code="0">Exception happened!</response>
+        [HttpPost]
+        [Route("/v1/Project")]
+        [ValidateModelState]
+        [SwaggerOperation("ProjectPOST")]
+        public virtual IActionResult ProjectPOST([FromBody]Project body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 0 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(0);
+
+            return Ok("Request Inserted Successfully");
         }
     }
 }
