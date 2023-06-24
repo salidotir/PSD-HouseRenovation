@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:signavio="http://www.signavio.com" id="sid-51e85912-9a63-45e5-85c5-daef76d32e32" targetNamespace="http://www.signavio.com" expressionLanguage="http://www.w3.org/TR/XPath" exporter="Camunda Modeler" exporterVersion="5.11.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:signavio="http://www.signavio.com" id="sid-51e85912-9a63-45e5-85c5-daef76d32e32" targetNamespace="http://www.signavio.com" expressionLanguage="http://www.w3.org/TR/XPath" exporter="Camunda Modeler" exporterVersion="5.9.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
   <dataStore id="sid-17d2a231-93f3-4673-bcf2-5812e25c67b4" name="DBMS" capacity="0" isUnlimited="false" />
   <collaboration id="sid-6728f5a6-e5c2-4546-915f-9ce741c39759">
     <extensionElements>
@@ -1272,6 +1272,12 @@
           <omgdc:Bounds x="1325" y="1108" width="48" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-5C907EF1-BDE5-4A86-B5A2-413AA03157DA_gui" bpmnElement="sid-5C907EF1-BDE5-4A86-B5A2-413AA03157DA">
+        <omgdc:Bounds x="1099" y="1077" width="30" height="30" />
+        <bpmndi:BPMNLabel labelStyle="sid-1814eea8-b8df-4606-bfcf-3210d71a1eea">
+          <omgdc:Bounds x="1072" y="1109" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="sid-B36FD140-C349-4B88-8976-C034B562412F_2_gui_2" bpmnElement="sid-B36FD140-C349-4B88-8976-C034B562412F_2_2">
         <omgdc:Bounds x="1497" y="948" width="63" height="61" />
         <bpmndi:BPMNLabel labelStyle="sid-46240b25-31bb-471a-86e1-a66db2f37f49">
@@ -1289,12 +1295,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0gna5dm_di" bpmnElement="sid-E1EB48E4-3D32-4365-A840-E14EA5192FAA">
         <omgdc:Bounds x="1479" y="1051" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-5C907EF1-BDE5-4A86-B5A2-413AA03157DA_gui" bpmnElement="sid-5C907EF1-BDE5-4A86-B5A2-413AA03157DA">
-        <omgdc:Bounds x="1099" y="1077" width="30" height="30" />
-        <bpmndi:BPMNLabel labelStyle="sid-1814eea8-b8df-4606-bfcf-3210d71a1eea">
-          <omgdc:Bounds x="1072" y="1109" width="85" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A_gui" bpmnElement="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A">
         <omgdi:waypoint x="1129" y="1092" />
