@@ -28,8 +28,8 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
 
   restclient.get('http://localhost:8080/plumber-quotation-recieved/', function (data, response) {
 
-    if (list_plumber.length > 3)
-      processVariables.set('list_plumber', list_plumber);
+    // if (list_plumber.length > 3)
+    //   processVariables.set('list_plumber', list_plumber);
 
 
 
