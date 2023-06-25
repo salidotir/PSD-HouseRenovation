@@ -14,20 +14,20 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('check-request-feasibility', async function ({ task, taskService }) {
+client.subscribe('send-request-feasibility-to-householder', async function ({ task, taskService }) {
     // Put your business logic here
 
     // Get a process variable
     const Is_feasible = task.variables.get('Is_feasible');
 
     //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
-    restclient.get('http://localhost:8080/inform-householder-feasibility/'+Is_feasible, function (data, response) {
+    restclient.get('http://localhost:8080/inform-householder-feasibility/', function (data, response) {
 
 
         console.log("Feasibility: " + Is_feasible);
 
         var processVariables = new Variables();
-        processVariables.set('Feasibility', Is_feasible);
+        processVariables.set('Is_feasible', Is_feasible);
 
         // Complete the task
         console.log(data);

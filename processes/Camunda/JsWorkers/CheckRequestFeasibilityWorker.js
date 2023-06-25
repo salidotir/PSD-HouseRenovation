@@ -15,29 +15,29 @@ var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
 client.subscribe('check-request-feasibility', async function ({ task, taskService }) {
-    // Put your business logic here
+  // Put your business logic here
 
-    // Get a process variable
-    // const address = task.variables.get('address');
-    // const startdate = task.variables.get('startdate');
-    // const duration = task.variables.get('duration');
-    // const budget = task.variables.get('budget');
+  // Get a process variable
+  // const address = task.variables.get('address');
+  // const startdate = task.variables.get('startdate');
+  // const duration = task.variables.get('duration');
+  // const budget = task.variables.get('budget');
 
-    //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
-    restclient.get('http://localhost:8080/check-request-feasibility/', function (data, response) {
+  //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
+  restclient.get('http://localhost:8080/check-request-feasibility/', function (data, response) {
 
-        var randomNumber = Math.floor(Math.random() * 101); // Generates a random number between 0 and 100
-        var Is_feasible = randomNumber % 2 ? true : false;
+    var randomNumber = Math.floor(Math.random() * 101); // Generates a random number between 0 and 100
+    var Is_feasible = randomNumber % 2 ? true : false;
 
-        console.log("Feasibility: " + Is_feasible);
+    console.log("Is_feasible: " + Is_feasible);
 
-//Is_feasible
-        var processVariables = new Variables();
-        processVariables.set('Feasibility', Is_feasible);
+    //Is_feasible
+    var processVariables = new Variables();
+    processVariables.set('Is_feasible', Is_feasible);
 
-        // Complete the task
-        console.log(data);
-        taskService.complete(task, processVariables);
-    })
+    // Complete the task
+    console.log(data);
+    taskService.complete(task, processVariables);
+  })
 
 });
