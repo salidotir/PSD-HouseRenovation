@@ -14,7 +14,7 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('Find-possible-workers', async function ({ task, taskService }) {
+client.subscribe('find-possible-workers', async function ({ task, taskService }) {
   // Put your business logic here
 
   // Get a process variable
@@ -24,7 +24,7 @@ client.subscribe('Find-possible-workers', async function ({ task, taskService })
   // const budget = task.variables.get('budget');
 
   //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
-  restclient.get('http://localhost:8080/Find-possible-workers/', function (data, response) {
+  restclient.get('http://localhost:8080/find-possible-workers/', function (data, response) {
 
 
 
@@ -39,8 +39,8 @@ client.subscribe('Find-possible-workers', async function ({ task, taskService })
 
     const plumber = ["P_GroupA", "P_GroupB", "P_GroupC", "P_GroupD", "P_GroupE", "P_GroupF"];
     //var Is_Plumber_Required = randomNumber1 > 3 ? true : false;
-    // var Is_Plumber_Required = true;
-    // console.log("Is_Plumber_Required: " + Is_Plumber_Required);
+    var Is_Plumber_Required = true;
+    console.log("Is_Plumber_Required: " + Is_Plumber_Required);
 
     const electrician = ["E_Group1", "E_Group2", "E_Group3", "E_Group4", "E_Group2", "E_Group3"]
     //var Is_Electrician_Required = randomNumber2 > 3 ? true : false;
@@ -62,7 +62,7 @@ client.subscribe('Find-possible-workers', async function ({ task, taskService })
 
     //Complete the task
 
-    //processVariables.set('Is_Plumber_Required', Is_Plumber_Required);
+    processVariables.set('Is_Plumber_Required', Is_Plumber_Required);
     processVariables.set('Is_Electrician_Required', Is_Electrician_Required);
     processVariables.set('Is_Constructor_Required', Is_Constructor_Required);
 
