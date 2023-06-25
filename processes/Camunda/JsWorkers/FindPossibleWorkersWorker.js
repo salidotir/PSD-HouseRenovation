@@ -14,7 +14,7 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('find-possible-worker', async function ({ task, taskService }) {
+client.subscribe('find-possible-workers', async function ({ task, taskService }) {
   // Put your business logic here
 
   // Get a process variable
@@ -24,7 +24,7 @@ client.subscribe('find-possible-worker', async function ({ task, taskService }) 
   // const budget = task.variables.get('budget');
 
   //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
-  restclient.get('http://localhost:8080/find-possible-worker/', function (data, response) {
+  restclient.get('http://localhost:8080/find-possible-workers/', function (data, response) {
 
 
 
@@ -53,7 +53,7 @@ client.subscribe('find-possible-worker', async function ({ task, taskService }) 
     console.log("Is_Constructor_Required: " + Is_Constructor_Required);
 
 
-    
+
     var list_plumber = plumber.slice(0, randomNumber1);
     var list_constructor = constructor.slice(0, randomNumber2);
     var list_electrician = electrician.slice(0, randomNumber3);
