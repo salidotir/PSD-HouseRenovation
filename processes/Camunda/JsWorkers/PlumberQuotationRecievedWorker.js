@@ -14,7 +14,7 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('check-request-feasibility', async function ({ task, taskService }) {
+client.subscribe('plumber-quotation-recieved', async function ({ task, taskService }) {
   // Put your business logic here
 
   // Get a process variable
