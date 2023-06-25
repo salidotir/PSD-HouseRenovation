@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "camunda-external-task-client-js": "^3.0.0",
+    "follow-redirects": "^1.15.2",
+    "node-rest-client": "^3.1.1"
+  },
+  "devDependencies": {
+    "open": "^9.1.0"
+  }
+}
