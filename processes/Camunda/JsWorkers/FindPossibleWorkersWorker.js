@@ -33,30 +33,30 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
     var randomNumber3 = Math.floor(Math.random() * 6);
 
 
-    //Is_feasible
+    //Is_Plumber_Required
     var processVariables = new Variables();
 
 
     const plumber = ["P_GroupA", "P_GroupB", "P_GroupC", "P_GroupD", "P_GroupE", "P_GroupF"];
     //var Is_Plumber_Required = randomNumber1 > 3 ? true : false;
-    var Is_Plumber_Required = true;
+    const Is_Plumber_Required = true;
     console.log("Is_Plumber_Required: " + Is_Plumber_Required);
 
     const electrician = ["E_Group1", "E_Group2", "E_Group3", "E_Group4", "E_Group2", "E_Group3"]
     //var Is_Electrician_Required = randomNumber2 > 3 ? true : false;
-    var Is_Electrician_Required = true;
+    const Is_Electrician_Required = true;
     console.log("Is_Electrician_Required: " + Is_Electrician_Required);
 
     const constructor = ["C_GroupX", "C_GroupY", "C_GroupZ", "C_GroupX1", "C_GroupY2", "C_GroupZ3"]
     //var Is_Constructor_Required = randomNumber3 > 3 ? true : false;
-    var Is_Constructor_Required = true;
+    const Is_Constructor_Required = true;
     console.log("Is_Constructor_Required: " + Is_Constructor_Required);
 
 
 
-    var list_plumber = plumber.slice(0, randomNumber1);
-    var list_constructor = constructor.slice(0, randomNumber2);
-    var list_electrician = electrician.slice(0, randomNumber3);
+    const list_plumber = plumber.slice(0, randomNumber1);
+    const list_constructor = constructor.slice(0, randomNumber2);
+    const list_electrician = electrician.slice(0, randomNumber3);
 
     const listWorkers = [list_plumber, list_constructor, list_electrician]
 
@@ -66,14 +66,14 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
     processVariables.set('Is_Electrician_Required', Is_Electrician_Required);
     processVariables.set('Is_Constructor_Required', Is_Constructor_Required);
 
-    console.log(data);
-    console.log(listWorkers);
-    var processVariables = new Variables();
+    
     processVariables.set('list_Workers', listWorkers);
     processVariables.set('list_plumber', list_plumber);
     processVariables.set('list_electrician', list_electrician);
     processVariables.set('list_constructor', list_constructor);
-
+    
+    console.log(listWorkers);
+    console.log(data);
     taskService.complete(task, processVariables);
   })
 

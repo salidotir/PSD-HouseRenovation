@@ -26,8 +26,8 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
 
 
 
-    var Is_feasible = Math.floor(Math.random() * 101) % 2 ? true : false;
-
+    //var Is_feasible = Math.floor(Math.random() * 101) % 2 ? true : false;
+    const Is_feasible = true;
     console.log("Is_feasible: " + Is_feasible);
 
     //Is_feasible

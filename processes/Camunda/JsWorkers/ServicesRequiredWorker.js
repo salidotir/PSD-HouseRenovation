@@ -14,31 +14,28 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('check-request-feasibility', async function ({ task, taskService }) {
+client.subscribe('ServicesRequired', async function ({ task, taskService }) {
     // Put your business logic here
 
     // Get a process variable
     // const address = task.variables.get('address');
-    var list_Workers = task.variables.get('list_Workers', listWorkers);
-    var list_plumber = task.variables.get('list_plumber', list_plumber);
-    var list_electrician = task.variables.get('list_electrician', list_electrician);
-    var list_constructor = task.variables.get('list_constructor', list_constructor);
+
 
     restclient.get('http://localhost:8080/service-required/', function (data, response) {
 
-        if (list_plumber.length > 3)
-            processVariables.set('list_plumber', list_plumber);
-        if (list_electrician.length > 3)
-            processVariables.set('list_electrician', list_electrician);
-        if (list_constructor.length > 3)
-            processVariables.set('list_constructor', list_constructor);
+
+
+
+        const Is_Plumber_Required = task.variables.get('Is_Plumber_Required');
+        const Is_Electrician_Required = task.variables.get('Is_Electrician_Required');
+        const Is_Constructor_Required = task.variables.get('Is_Constructor_Required');
+
+        processVariables.set('Is_Plumber_Required', Is_Plumber_Required);
+        processVariables.set('Is_Electrician_Required', Is_Electrician_Required);
+        processVariables.set('Is_Constructor_Required', Is_Constructor_Required);
 
 
         console.log(data);
-        console.log('list_plumber' + list_plumber);
-        console.log('list_electrician' + list_electrician);
-        console.log('list_constructor' + list_constructor);
-
         taskService.complete(task, processVariables);
     })
 
