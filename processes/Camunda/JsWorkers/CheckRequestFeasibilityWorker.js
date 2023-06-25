@@ -26,8 +26,8 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
   //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
   restclient.get('http://localhost:8080/check-request-feasibility/', function (data, response) {
 
-    var randomNumber = Math.floor(Math.random() * 101); // Generates a random number between 0 and 100
-    var Is_feasible = randomNumber % 2 ? true : false;
+
+    var Is_feasible = Math.floor(Math.random() * 101) % 2 ? true : false;
 
     console.log("Is_feasible: " + Is_feasible);
 
