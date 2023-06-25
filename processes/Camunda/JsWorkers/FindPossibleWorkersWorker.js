@@ -27,7 +27,7 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
   restclient.get('http://localhost:8080/find-possible-worker/', function (data, response) {
 
 
-    var randomNumber = Math.floor(Math.random() * 7);
+    
     const plumber = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"]
     const electrician = ["Group1", "Group2", "Group3", "Group4", "Group2", "Group3"]
     const constructor = ["GroupX", "GroupY", "GroupZ", "GroupX1", "GroupY2", "GroupZ3"]
@@ -46,7 +46,7 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
     processVariables.set('list_plumber', list_plumber);
     processVariables.set('list_electrician', list_electrician);
     processVariables.set('list_constructor', list_constructor);
-    
+
     taskService.complete(task, processVariables);
   })
 
