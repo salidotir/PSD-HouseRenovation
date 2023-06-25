@@ -1,18 +1,9 @@
 {
-  "name": "your-package",
-  "version": "1.0.0",
-  "type": "module",
-  "description": "Description of your package",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "author": "Your Name",
-  "license": "MIT",
   "dependencies": {
-    // Your dependencies here
+    "camunda-external-task-client-js": "^2.2.0",
+    "node-rest-client": "^3.1.1"
   },
   "devDependencies": {
-    // Your development dependencies here
+    "open": "^8.4.0"
   }
 }
