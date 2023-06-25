@@ -28,17 +28,25 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
 
 
     var randomNumber = Math.floor(Math.random() * 7);
-    const plumbers = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"]
+    const plumber = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"]
     const electrician = ["Group1", "Group2", "Group3", "Group4", "Group2", "Group3"]
     const constructor = ["GroupX", "GroupY", "GroupZ", "GroupX1", "GroupY2", "GroupZ3"]
 
-    const listWorkers = [plumbers.slice(0,randomNumber), electrician.slice(0,randomNumber), constructor.slice(0,randomNumber)]
+    var list_plumber = plumber.slice(0, randomNumber);
+    var list_constructor = constructor.slice(0, randomNumber);
+    var list_electrician = electrician.slice(0, randomNumber);
+
+    const listWorkers = [list_plumber,list_constructor ,list_electrician]
 
     // Complete the task
     console.log(data);
     console.log(listWorkers);
     var processVariables = new Variables();
     processVariables.set('list_Workers', listWorkers);
+    processVariables.set('list_plumber', list_plumber);
+    processVariables.set('list_electrician', list_electrician);
+    processVariables.set('list_constructor', list_constructor);
+    
     taskService.complete(task, processVariables);
   })
 
