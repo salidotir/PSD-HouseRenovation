@@ -14,7 +14,7 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('find-possible-workers', async function ({ task, taskService }) {
+client.subscribe('Find-possible-workers', async function ({ task, taskService }) {
   // Put your business logic here
 
   // Get a process variable
@@ -24,30 +24,30 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
   // const budget = task.variables.get('budget');
 
   //restclient.get('http://localhost:8080/check-request-feasibility/' + address + startdate + duration + budget, function (data, response) {
-  restclient.get('http://localhost:8080/find-possible-workers/', function (data, response) {
+  restclient.get('http://localhost:8080/Find-possible-workers/', function (data, response) {
 
 
 
-    var randomNumber1 = Math.floor(Math.random() * 7);
-    var randomNumber2 = Math.floor(Math.random() * 7);
-    var randomNumber3 = Math.floor(Math.random() * 7);
+    var randomNumber1 = Math.floor(Math.random() * 6);
+    var randomNumber2 = Math.floor(Math.random() * 6);
+    var randomNumber3 = Math.floor(Math.random() * 6);
 
 
     //Is_feasible
     var processVariables = new Variables();
 
 
-    const plumber = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"];
+    const plumber = ["P_GroupA", "P_GroupB", "P_GroupC", "P_GroupD", "P_GroupE", "P_GroupF"];
     //var Is_Plumber_Required = randomNumber1 > 3 ? true : false;
     var Is_Plumber_Required = true;
     console.log("Is_Plumber_Required: " + Is_Plumber_Required);
 
-    const electrician = ["Group1", "Group2", "Group3", "Group4", "Group2", "Group3"]
+    const electrician = ["E_Group1", "E_Group2", "E_Group3", "E_Group4", "E_Group2", "E_Group3"]
     //var Is_Electrician_Required = randomNumber2 > 3 ? true : false;
     var Is_Electrician_Required = true;
     console.log("Is_Electrician_Required: " + Is_Electrician_Required);
 
-    const constructor = ["GroupX", "GroupY", "GroupZ", "GroupX1", "GroupY2", "GroupZ3"]
+    const constructor = ["C_GroupX", "C_GroupY", "C_GroupZ", "C_GroupX1", "C_GroupY2", "C_GroupZ3"]
     //var Is_Constructor_Required = randomNumber3 > 3 ? true : false;
     var Is_Constructor_Required = true;
     console.log("Is_Constructor_Required: " + Is_Constructor_Required);
