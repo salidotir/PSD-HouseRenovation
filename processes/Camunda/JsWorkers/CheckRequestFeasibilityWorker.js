@@ -50,6 +50,9 @@ client.subscribe('check-request-feasibility', async function ({ task, taskServic
 
     // Complete the task
     console.log(data);
+
+    open('https://docs.camunda.org/get-started/quick-start/success');
+    
     taskService.complete(task, processVariables);
   })
 

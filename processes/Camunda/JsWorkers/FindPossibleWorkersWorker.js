@@ -27,18 +27,45 @@ client.subscribe('find-possible-worker', async function ({ task, taskService }) 
   restclient.get('http://localhost:8080/find-possible-worker/', function (data, response) {
 
 
-    
-    const plumber = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"]
+
+    var randomNumber1 = Math.floor(Math.random() * 7);
+    var randomNumber2 = Math.floor(Math.random() * 7);
+    var randomNumber3 = Math.floor(Math.random() * 7);
+
+
+    //Is_feasible
+    var processVariables = new Variables();
+
+
+    const plumber = ["GroupA", "GroupB", "GroupC", "GroupD", "GroupE", "GroupF"];
+    //var Is_Plumber_Required = randomNumber1 > 3 ? true : false;
+    var Is_Plumber_Required = true;
+    console.log("Is_Plumber_Required: " + Is_Plumber_Required);
+
     const electrician = ["Group1", "Group2", "Group3", "Group4", "Group2", "Group3"]
+    //var Is_Electrician_Required = randomNumber2 > 3 ? true : false;
+    var Is_Electrician_Required = true;
+    console.log("Is_Electrician_Required: " + Is_Electrician_Required);
+
     const constructor = ["GroupX", "GroupY", "GroupZ", "GroupX1", "GroupY2", "GroupZ3"]
+    //var Is_Constructor_Required = randomNumber3 > 3 ? true : false;
+    var Is_Constructor_Required = true;
+    console.log("Is_Constructor_Required: " + Is_Constructor_Required);
 
-    var list_plumber = plumber.slice(0, randomNumber);
-    var list_constructor = constructor.slice(0, randomNumber);
-    var list_electrician = electrician.slice(0, randomNumber);
 
-    const listWorkers = [list_plumber,list_constructor ,list_electrician]
+    
+    var list_plumber = plumber.slice(0, randomNumber1);
+    var list_constructor = constructor.slice(0, randomNumber2);
+    var list_electrician = electrician.slice(0, randomNumber3);
 
-    // Complete the task
+    const listWorkers = [list_plumber, list_constructor, list_electrician]
+
+    //Complete the task
+
+    processVariables.set('Is_Plumber_Required', Is_Plumber_Required);
+    processVariables.set('Is_Electrician_Required', Is_Electrician_Required);
+    processVariables.set('Is_Constructor_Required', Is_Constructor_Required);
+
     console.log(data);
     console.log(listWorkers);
     var processVariables = new Variables();
