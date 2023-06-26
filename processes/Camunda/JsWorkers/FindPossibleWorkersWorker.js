@@ -15,6 +15,7 @@ var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
 client.subscribe('find-possible-workers', async function ({ task, taskService }) {
+  console.log('In Find Possible Workers');
   // Put your business logic here
 
   // Get a process variable
@@ -29,8 +30,7 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
 
 
     var randomNumber1 = Math.floor(Math.random() * 6);
-    var randomNumber2 = Math.floor(Math.random() * 6);
-    var randomNumber3 = Math.floor(Math.random() * 6);
+    randomNumber1 = randomNumber1 ==0 ? 1 : randomNumber1;
 
 
     //Is_Plumber_Required
@@ -55,8 +55,8 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
 
 
     const list_plumber = plumber.slice(0, randomNumber1);
-    const list_constructor = constructor.slice(0, randomNumber2);
-    const list_electrician = electrician.slice(0, randomNumber3);
+    const list_constructor = constructor.slice(0, randomNumber1);
+    const list_electrician = electrician.slice(0, randomNumber1);
 
     const listWorkers = [list_plumber, list_constructor, list_electrician]
 
@@ -66,12 +66,12 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
     processVariables.set('Is_Electrician_Required', Is_Electrician_Required);
     processVariables.set('Is_Constructor_Required', Is_Constructor_Required);
 
-    
+
     processVariables.set('list_Workers', listWorkers);
     processVariables.set('list_plumber', list_plumber);
     processVariables.set('list_electrician', list_electrician);
     processVariables.set('list_constructor', list_constructor);
-    
+
     console.log(listWorkers);
     console.log(data);
     taskService.complete(task, processVariables);

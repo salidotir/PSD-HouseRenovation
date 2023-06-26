@@ -14,17 +14,18 @@ import { Client as RESTClient } from 'node-rest-client';
 var restclient = new RESTClient();
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('select-plumber-winner', async function ({ task, taskService }) {
+client.subscribe('inform-project-finished-to-householder', async function ({ task, taskService }) {
   // Put your business logic here
 
- const list_plumbers = task.variables.get('list_plumber');
+ 
 
-  restclient.get('http://localhost:8080/select-plumber-winner/', function (data, response) {
+  restclient.get('http://localhost:8080/inform-project-finished-to-householder/', function (data, response) {
 
     var processVariables = new Variables();
 
     
-    processVariables.set('winner plumber', list_plumbers[0]);
+    processVariables.set('project_status', 'Finieshed');
+    processVariables.set('HouseHolder_Status', 'Informed');
     console.log(data)
 
 

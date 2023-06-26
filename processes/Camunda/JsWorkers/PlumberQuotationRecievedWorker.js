@@ -42,12 +42,12 @@ client.subscribe('plumber-quotation-recieved', async function ({ task, taskServi
     console.log('duration:' + duration);
     console.log('budget:' + budget);
 
-    var duration = ["50days", "100days", "150days", "200days", "250days"];
+    var durations = ["50days", "100days", "150days", "200days", "250days"];
     var budgets = ["21000€", "31000€", "41000€", "51000€", "61000€"];
     var randomNumber = Math.floor(Math.random() * 5);
 
     var processVariables = new Variables();
-    processVariables.set('duration', duration[randomNumber]);
+    processVariables.set('duration', durations[randomNumber]);
     processVariables.set('budget', budgets[randomNumber]);
 
     taskService.complete(task, processVariables);

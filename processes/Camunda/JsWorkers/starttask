@@ -1,0 +1,16 @@
+#!/bin/bash
+
+ node CheckRequestFeasibilityWorker.js&
+sleep 1&
+ node InformHouseHolderAboutFeasbilityOfRenovationRequestWorker.js&
+sleep 1&
+ node FindPossibleWorkersWorker.js&
+sleep 1&
+ node PlumberQuotationRecievedWorker.js&
+sleep 1&
+ node StorePlumberQuotationInDBMSWorker.js&
+sleep 1&
+ node SelectBestWorkerAmongPlumbersAutomaticallyWorker.js&
+sleep 1&
+node SendaStartProjectRequestToTheWinnerPlumberWorker.js&
+sleep 1&

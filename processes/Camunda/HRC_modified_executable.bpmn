@@ -159,7 +159,7 @@
       <bpmn:outgoing>Flow_1g3japg</bpmn:outgoing>
       <bpmn:outgoing>Flow_14cyt31</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:intermediateThrowEvent id="Event_17npz8e" name="Inform householder&#10;about feasibility of&#10;renovation request">
+    <bpmn:intermediateThrowEvent id="InformHouseholderAboutFeasibility" name="Inform householder&#10;about feasibility of&#10;renovation request">
       <bpmn:incoming>Flow_0kk1hwm</bpmn:incoming>
       <bpmn:outgoing>Flow_15yjnel</bpmn:outgoing>
       <bpmn:property id="Property_0znqaa6" name="__targetRef_placeholder" />
@@ -190,7 +190,7 @@
         <bpmn:targetRef>Property_02ooxmt</bpmn:targetRef>
       </bpmn:dataInputAssociation>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="FindPossibleWorkers" name="Find possible workers" camunda:type="external" camunda:topic="Find-possible-workers">
+    <bpmn:serviceTask id="FindPossibleWorkers" name="Find possible workers" camunda:type="external" camunda:topic="find-possible-workers">
       <bpmn:incoming>Flow_14cyt31</bpmn:incoming>
       <bpmn:outgoing>Flow_0gjriq1</bpmn:outgoing>
       <bpmn:property id="Property_1wku72e" name="__targetRef_placeholder" />
@@ -209,19 +209,13 @@
         <bpmn:targetRef>DataObjectReference_19hjgdl</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:serviceTask>
-    <bpmn:inclusiveGateway id="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F" name="Services Required" gatewayDirection="Diverging">
-      <bpmn:incoming>Flow_0gjriq1</bpmn:incoming>
-      <bpmn:outgoing>sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A</bpmn:outgoing>
-      <bpmn:outgoing>sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB</bpmn:outgoing>
-      <bpmn:outgoing>sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C</bpmn:outgoing>
-    </bpmn:inclusiveGateway>
     <bpmn:endEvent id="sid-00D03BB6-8F24-45FC-A9F5-76EBC6597F0E" name="Project finished">
       <bpmn:incoming>sid-532D19B3-A247-4D36-9468-5A7F4546D695</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:inclusiveGateway id="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" name="" gatewayDirection="Converging">
-      <bpmn:incoming>Flow_134bmxp</bpmn:incoming>
       <bpmn:incoming>Flow_1u7pi5h</bpmn:incoming>
       <bpmn:incoming>Flow_0a8gb2l</bpmn:incoming>
+      <bpmn:incoming>sid-66063887-24DA-47BF-8FA0-BF060A762CC1</bpmn:incoming>
       <bpmn:outgoing>sid-727B2A18-D1F3-4BFE-B9BC-0465C755A967</bpmn:outgoing>
     </bpmn:inclusiveGateway>
     <bpmn:dataStoreReference id="DataStoreReference_11w5mcg" name="Workers DBMS" />
@@ -231,17 +225,13 @@
         <bpmn:targetRef>DataObjectReference_1goed8h</bpmn:targetRef>
       </bpmn:dataOutputAssociation>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A" name="Plumbing required" sourceRef="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F" targetRef="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Plumber}</bpmn:conditionExpression>
+    <bpmn:sequenceFlow id="sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A" name="Plumbing required" sourceRef="ServicesRequired" targetRef="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_Plumber_Required}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB" name="Electrician required" sourceRef="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F" targetRef="sid-D04DE139-BB72-486C-80EA-3BAC133C9F49">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">{electrician}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C" name="Constructor required" sourceRef="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F" targetRef="sid-1EEAD93D-C7FB-4C62-886A-D800CAF8BF33">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Constructor}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB" name="Electrician required" sourceRef="ServicesRequired" targetRef="sid-D04DE139-BB72-486C-80EA-3BAC133C9F49" />
+    <bpmn:sequenceFlow id="sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C" name="Constructor required" sourceRef="ServicesRequired" targetRef="sid-1EEAD93D-C7FB-4C62-886A-D800CAF8BF33" />
     <bpmn:sequenceFlow id="Flow_0cf0y9j" name="" sourceRef="RejectRequest" targetRef="Event_0esv9or" />
-    <bpmn:sequenceFlow id="Flow_15yjnel" name="" sourceRef="Event_17npz8e" targetRef="Gateway_0coj2rl" />
+    <bpmn:sequenceFlow id="Flow_15yjnel" name="" sourceRef="InformHouseholderAboutFeasibility" targetRef="Gateway_0coj2rl" />
     <bpmn:sequenceFlow id="Flow_1g3japg" name="Not Feasible" sourceRef="Gateway_0coj2rl" targetRef="RejectRequest">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!Is_feasible}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
@@ -249,9 +239,11 @@
       <bpmn:extensionElements />
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_feasible}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0kk1hwm" name="" sourceRef="CheckRequestFeasibility" targetRef="Event_17npz8e" />
+    <bpmn:sequenceFlow id="Flow_0kk1hwm" name="" sourceRef="CheckRequestFeasibility" targetRef="InformHouseholderAboutFeasibility" />
     <bpmn:sequenceFlow id="Flow_0ifqx25" name="" sourceRef="Event_0em2hwu" targetRef="CheckRequestFeasibility" />
-    <bpmn:sequenceFlow id="sid-727B2A18-D1F3-4BFE-B9BC-0465C755A967" name="" sourceRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" targetRef="NotifyHouseHolderToCompletePayment" />
+    <bpmn:sequenceFlow id="sid-727B2A18-D1F3-4BFE-B9BC-0465C755A967" name="" sourceRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" targetRef="NotifyHouseHolderToCompletePayment">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_Project_Finished}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="sid-532D19B3-A247-4D36-9468-5A7F4546D695" name="" sourceRef="FinishPayment" targetRef="sid-00D03BB6-8F24-45FC-A9F5-76EBC6597F0E" />
     <bpmn:serviceTask id="NotifyHouseHolderToCompletePayment" name=".      Notify house holder to complete payment" camunda:type="external" camunda:topic="inform-project-finished-to-householder">
       <bpmn:incoming>sid-727B2A18-D1F3-4BFE-B9BC-0465C755A967</bpmn:incoming>
@@ -271,12 +263,7 @@
     <bpmn:dataObject id="DataObject_0p5uznb" />
     <bpmn:dataObjectReference id="DataObjectReference_1s7fg0p" name="Payment Reciept" dataObjectRef="DataObject_0rx2cgz" />
     <bpmn:dataObject id="DataObject_0rx2cgz" />
-    <bpmn:sequenceFlow id="Flow_0gjriq1" sourceRef="FindPossibleWorkers" targetRef="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F" />
-    <bpmn:intermediateCatchEvent id="sid-DE56AF6E-ED4B-41EA-9EC9-30EC3EAF63DD" name="Finish project &#10;status received">
-      <bpmn:incoming>sid-66063887-24DA-47BF-8FA0-BF060A762CC1</bpmn:incoming>
-      <bpmn:outgoing>Flow_134bmxp</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="sid-a864340c-a87d-4308-ad90-2126d61a8f86" messageRef="Message_296mee4" />
-    </bpmn:intermediateCatchEvent>
+    <bpmn:sequenceFlow id="Flow_0gjriq1" sourceRef="FindPossibleWorkers" targetRef="ServicesRequired" />
     <bpmn:serviceTask id="SelectBestWorkerAmongPlumbersAutomatically" name=".            Select best worker among plumbers automatically" camunda:type="external" camunda:topic="select-plumber-winner">
       <bpmn:incoming>Flow_0mttyd4</bpmn:incoming>
       <bpmn:outgoing>sid-B7AE9540-31B2-46D7-AB86-B986D434FD69</bpmn:outgoing>
@@ -285,11 +272,10 @@
       <bpmn:incoming>sid-B7AE9540-31B2-46D7-AB86-B986D434FD69</bpmn:incoming>
       <bpmn:outgoing>sid-66063887-24DA-47BF-8FA0-BF060A762CC1</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:sequenceFlow id="sid-66063887-24DA-47BF-8FA0-BF060A762CC1" name="" sourceRef="SendaStartProjectRequestToTheWinnerPlumber" targetRef="sid-DE56AF6E-ED4B-41EA-9EC9-30EC3EAF63DD" />
+    <bpmn:sequenceFlow id="sid-66063887-24DA-47BF-8FA0-BF060A762CC1" name="" sourceRef="SendaStartProjectRequestToTheWinnerPlumber" targetRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" />
     <bpmn:sequenceFlow id="sid-B7AE9540-31B2-46D7-AB86-B986D434FD69" name="" sourceRef="SelectBestWorkerAmongPlumbersAutomatically" targetRef="SendaStartProjectRequestToTheWinnerPlumber" />
     <bpmn:sequenceFlow id="Flow_0mttyd4" sourceRef="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4" targetRef="SelectBestWorkerAmongPlumbersAutomatically" />
-    <bpmn:sequenceFlow id="Flow_134bmxp" sourceRef="sid-DE56AF6E-ED4B-41EA-9EC9-30EC3EAF63DD" targetRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" />
-    <bpmn:intermediateCatchEvent id="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D" name="Finish project &#10;status received">
+    <bpmn:intermediateCatchEvent id="FinishProjectStatusReceived" name="Finish project &#10;status received">
       <bpmn:incoming>sid-39430CD0-7671-4D07-8205-BEFB89951A14</bpmn:incoming>
       <bpmn:outgoing>Flow_1u7pi5h</bpmn:outgoing>
       <bpmn:messageEventDefinition id="sid-d0fcfe38-b7d0-4e4a-94fa-2242d82ab246" messageRef="Message_07qt0jl" />
@@ -307,7 +293,7 @@
     </bpmn:serviceTask>
     <bpmn:dataObjectReference id="DataObjectReference_1t21dmv" name="Winner Electrician" dataObjectRef="DataObject_102psd4" />
     <bpmn:dataObject id="DataObject_102psd4" />
-    <bpmn:sequenceFlow id="sid-39430CD0-7671-4D07-8205-BEFB89951A14" name="" sourceRef="SendAStartProjectRequestToTheWinnerElectrician" targetRef="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D" />
+    <bpmn:sequenceFlow id="sid-39430CD0-7671-4D07-8205-BEFB89951A14" name="" sourceRef="SendAStartProjectRequestToTheWinnerElectrician" targetRef="FinishProjectStatusReceived" />
     <bpmn:sequenceFlow id="sid-B56459A9-2B3C-4F94-8F0E-39B809B47379" name="" sourceRef="SelectBestWorkerAmongElectriciansAutomatically" targetRef="SendAStartProjectRequestToTheWinnerElectrician" />
     <bpmn:sequenceFlow id="Flow_0dwo6it" sourceRef="sid-D04DE139-BB72-486C-80EA-3BAC133C9F49" targetRef="SelectBestWorkerAmongElectriciansAutomatically" />
     <bpmn:serviceTask id="SelectBestWorkerAmongConstructorsAutomatically" name="Select best worker among constructors automatically" camunda:type="external" camunda:topic="select-constructor-winner">
@@ -325,7 +311,7 @@
     <bpmn:dataObject id="DataObject_0id6a0p" />
     <bpmn:sequenceFlow id="sid-5D1EA084-A0CD-45AF-A590-77265AAC6DED" name="" sourceRef="SelectBestWorkerAmongConstructorsAutomatically" targetRef="SendAStartProjectRequestToConstructor" />
     <bpmn:sequenceFlow id="Flow_0e6hjz8" sourceRef="sid-1EEAD93D-C7FB-4C62-886A-D800CAF8BF33" targetRef="SelectBestWorkerAmongConstructorsAutomatically" />
-    <bpmn:sequenceFlow id="Flow_1u7pi5h" sourceRef="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D" targetRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" />
+    <bpmn:sequenceFlow id="Flow_1u7pi5h" sourceRef="FinishProjectStatusReceived" targetRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" />
     <bpmn:serviceTask id="SendARequestToConstructorToCheckIfProjectIsFinished" name=". Send a request to constructor to check if project is finished" camunda:type="external" camunda:topic="constructor-check-proj-is-finished">
       <bpmn:incoming>sid-054FFD9E-79EE-471B-A6D0-D2C75E6C0337</bpmn:incoming>
       <bpmn:incoming>Flow_1rwofe6</bpmn:incoming>
@@ -344,12 +330,18 @@
       <bpmn:outgoing>Flow_1rwofe6</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_0a8gb2l" name="YES" sourceRef="sid-E524993B-9EF2-42AC-A995-0B89B08A9AFE" targetRef="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_project_finished}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_project_finished_con}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1rwofe6" name="NO" sourceRef="sid-E524993B-9EF2-42AC-A995-0B89B08A9AFE" targetRef="SendARequestToConstructorToCheckIfProjectIsFinished">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!Is_project_finished}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="sid-FB1B0BF3-8E29-420A-BBBE-1683E0E73D1C" name="" sourceRef="sid-67760BA0-338D-477A-B079-C7D92A8714E1" targetRef="sid-E524993B-9EF2-42AC-A995-0B89B08A9AFE" />
+    <bpmn:inclusiveGateway id="ServicesRequired" name="Services Required">
+      <bpmn:incoming>Flow_0gjriq1</bpmn:incoming>
+      <bpmn:outgoing>sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A</bpmn:outgoing>
+      <bpmn:outgoing>sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB</bpmn:outgoing>
+      <bpmn:outgoing>sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C</bpmn:outgoing>
+    </bpmn:inclusiveGateway>
   </bpmn:process>
   <bpmn:message id="Message_0kgaodd" name="Message_Quotation" />
   <bpmn:message id="Message_296mee4" name="Message_Plumber_Finished" />
@@ -459,6 +451,10 @@
         <dc:Bounds x="2640" y="810" width="1705" height="582" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15xilsr_di" bpmnElement="StoreConstructorQuotationInDBMS">
+        <dc:Bounds x="3914" y="1160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1x6a59z_di" bpmnElement="DeleteThisConstructorFromListOfPossibleWorkers">
         <dc:Bounds x="3701" y="920" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -518,10 +514,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="4269" y="1112" width="52" height="27" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_15xilsr_di" bpmnElement="StoreConstructorQuotationInDBMS">
-        <dc:Bounds x="3914" y="1160" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="sid-19C11086-F4C5-40C3-9D85-E5FE8A7C5D56_gui" bpmnElement="sid-19C11086-F4C5-40C3-9D85-E5FE8A7C5D56">
         <di:waypoint x="3473" y="1079" />
@@ -585,10 +577,10 @@
           <dc:Bounds x="531" y="616" width="53" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0y6ps1o" bpmnElement="Event_17npz8e">
-        <dc:Bounds x="447" y="647" width="31" height="30" />
+      <bpmndi:BPMNShape id="BPMNShape_0y6ps1o" bpmnElement="InformHouseholderAboutFeasibility">
+        <dc:Bounds x="444" y="645" width="31" height="30" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="417" y="578" width="89" height="66" />
+          <dc:Bounds x="414" y="576" width="89" height="66" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1s4rbbt" bpmnElement="CheckRequestFeasibility">
@@ -598,17 +590,11 @@
         <dc:Bounds x="502" y="771" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1p4x424" bpmnElement="FindPossibleWorkers">
-        <dc:Bounds x="740" y="622" width="100" height="80" />
+        <dc:Bounds x="740" y="617" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1e30b2s_di" bpmnElement="FinishPayment">
         <dc:Bounds x="5953" y="618" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F_gui" bpmnElement="sid-05D5915D-F13B-4BDD-AB1C-D79DB6773D5F">
-        <dc:Bounds x="1027" y="641" width="41" height="41" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="977" y="622" width="90" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="sid-00D03BB6-8F24-45FC-A9F5-76EBC6597F0E_gui" bpmnElement="sid-00D03BB6-8F24-45FC-A9F5-76EBC6597F0E">
         <dc:Bounds x="6149" y="645" width="28" height="28" />
@@ -664,12 +650,6 @@
           <dc:Bounds x="5761" y="486" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-DE56AF6E-ED4B-41EA-9EC9-30EC3EAF63DD_gui" bpmnElement="sid-DE56AF6E-ED4B-41EA-9EC9-30EC3EAF63DD">
-        <dc:Bounds x="2461" y="641" width="31" height="31" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="2439" y="673" width="74" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1trqe09_di" bpmnElement="SelectBestWorkerAmongPlumbersAutomatically">
         <dc:Bounds x="2081" y="621" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -677,7 +657,7 @@
       <bpmndi:BPMNShape id="Activity_189cfuw_di" bpmnElement="SendaStartProjectRequestToTheWinnerPlumber">
         <dc:Bounds x="2260" y="617" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D_gui" bpmnElement="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D">
+      <bpmndi:BPMNShape id="sid-592C0DF2-30AF-4422-8A1D-B926B84B0F9D_gui" bpmnElement="FinishProjectStatusReceived">
         <dc:Bounds x="4105" y="274" width="29" height="29" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="4083" y="306" width="74" height="27" />
@@ -722,6 +702,12 @@
           <dc:Bounds x="5252" y="1044" width="86" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1vr96w3_di" bpmnElement="ServicesRequired">
+        <dc:Bounds x="1019" y="639" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="969" y="620" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataInputAssociation_0izoxdf_di" bpmnElement="DataInputAssociation_0izoxdf">
         <di:waypoint x="1508" y="554" />
         <di:waypoint x="1640" y="617" />
@@ -759,8 +745,8 @@
         <di:waypoint x="3095" y="1036" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_0ld7wc4_di" bpmnElement="DataInputAssociation_0ld7wc4">
-        <di:waypoint x="427" y="746" />
-        <di:waypoint x="457" y="676" />
+        <di:waypoint x="426" y="746" />
+        <di:waypoint x="454" y="675" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_0qoobrv_di" bpmnElement="DataInputAssociation_0qoobrv">
         <di:waypoint x="274" y="555" />
@@ -776,10 +762,10 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1ynqmlr" bpmnElement="DataInputAssociation_0wpv2kj">
         <di:waypoint x="789" y="781" />
-        <di:waypoint x="790" y="702" />
+        <di:waypoint x="790" y="697" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0p28ogu_di" bpmnElement="DataOutputAssociation_0p28ogu">
-        <di:waypoint x="797" y="622" />
+        <di:waypoint x="797" y="617" />
         <di:waypoint x="806" y="565" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_1fejfkd_di" bpmnElement="DataOutputAssociation_1fejfkd">
@@ -791,26 +777,26 @@
         <di:waypoint x="248" y="556" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A_gui" bpmnElement="sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A">
-        <di:waypoint x="1068" y="662" />
-        <di:waypoint x="1200" y="662" />
+        <di:waypoint x="1065" y="660" />
+        <di:waypoint x="1200" y="660" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1079" y="642" width="90" height="14" />
+          <dc:Bounds x="1077" y="640" width="90" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB_gui" bpmnElement="sid-CAA8B585-CBAD-449D-99AA-DB6F7EA3DBEB">
-        <di:waypoint x="1048" y="642" />
-        <di:waypoint x="1048" y="289" />
+        <di:waypoint x="1040" y="643" />
+        <di:waypoint x="1040" y="289" />
         <di:waypoint x="2690" y="289" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1054" y="296" width="51" height="27" />
+          <dc:Bounds x="1046" y="296" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C_gui" bpmnElement="sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C">
-        <di:waypoint x="1048" y="682" />
-        <di:waypoint x="1048" y="1152" />
+        <di:waypoint x="1040" y="685" />
+        <di:waypoint x="1040" y="1152" />
         <di:waypoint x="2640" y="1152" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1034" y="1119" width="58" height="27" />
+          <dc:Bounds x="1026" y="1119" width="58" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0ii85o3" bpmnElement="Flow_0cf0y9j">
@@ -818,7 +804,9 @@
         <di:waypoint x="552" y="916" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0aedn2j" bpmnElement="Flow_15yjnel">
-        <di:waypoint x="478" y="663" />
+        <di:waypoint x="475" y="661" />
+        <di:waypoint x="504" y="661" />
+        <di:waypoint x="504" y="663" />
         <di:waypoint x="533" y="663" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0zn2h8f" bpmnElement="Flow_1g3japg">
@@ -830,14 +818,18 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0lr58dn" bpmnElement="Flow_14cyt31">
         <di:waypoint x="572" y="662" />
-        <di:waypoint x="740" y="662" />
+        <di:waypoint x="656" y="662" />
+        <di:waypoint x="656" y="657" />
+        <di:waypoint x="740" y="657" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="609" y="642" width="42" height="14" />
+          <dc:Bounds x="664" y="637" width="42" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0p14r1o" bpmnElement="Flow_0kk1hwm">
         <di:waypoint x="388" y="663" />
-        <di:waypoint x="447" y="663" />
+        <di:waypoint x="416" y="663" />
+        <di:waypoint x="416" y="661" />
+        <di:waypoint x="444" y="661" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_12a9h44" bpmnElement="Flow_0ifqx25">
         <di:waypoint x="230" y="665" />
@@ -860,12 +852,16 @@
         <di:waypoint x="5953" y="658" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0gjriq1_di" bpmnElement="Flow_0gjriq1">
-        <di:waypoint x="840" y="662" />
-        <di:waypoint x="1028" y="662" />
+        <di:waypoint x="840" y="657" />
+        <di:waypoint x="930" y="657" />
+        <di:waypoint x="930" y="660" />
+        <di:waypoint x="1023" y="660" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-66063887-24DA-47BF-8FA0-BF060A762CC1_gui" bpmnElement="sid-66063887-24DA-47BF-8FA0-BF060A762CC1">
         <di:waypoint x="2360" y="657" />
-        <di:waypoint x="2461" y="657" />
+        <di:waypoint x="3984" y="657" />
+        <di:waypoint x="3984" y="658" />
+        <di:waypoint x="5607" y="658" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-B7AE9540-31B2-46D7-AB86-B986D434FD69_gui" bpmnElement="sid-B7AE9540-31B2-46D7-AB86-B986D434FD69">
         <di:waypoint x="2181" y="661" />
@@ -874,12 +870,6 @@
       <bpmndi:BPMNEdge id="Flow_0mttyd4_di" bpmnElement="Flow_0mttyd4">
         <di:waypoint x="1950" y="661" />
         <di:waypoint x="2081" y="661" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_134bmxp_di" bpmnElement="Flow_134bmxp">
-        <di:waypoint x="2492" y="657" />
-        <di:waypoint x="4050" y="657" />
-        <di:waypoint x="4050" y="658" />
-        <di:waypoint x="5607" y="658" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0pq9xob_di" bpmnElement="DataOutputAssociation_0pq9xob">
         <di:waypoint x="3749" y="329" />
@@ -927,7 +917,7 @@
         <di:waypoint x="5627" y="1101" />
         <di:waypoint x="5627" y="677" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5339" y="1083" width="22" height="14" />
+          <dc:Bounds x="5339" y="1083" width="23" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1rwofe6_di" bpmnElement="Flow_1rwofe6">

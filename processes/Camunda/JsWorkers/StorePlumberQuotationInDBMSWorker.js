@@ -21,8 +21,10 @@ client.subscribe('store-plumber-quotation-in-db', async function ({ task, taskSe
 
   restclient.get('http://localhost:8080/store-plumber-quotation-in-db/', function (data, response) {
 
+    var processVariables = new Variables();
 
 
+    processVariables.set('store-plumber-quotation-in-db', 'Success');
     console.log('OK')
     console.log(data)
 
