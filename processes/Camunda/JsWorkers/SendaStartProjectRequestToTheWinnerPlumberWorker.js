@@ -24,8 +24,8 @@ client.subscribe('winner-plumber-start-project', async function ({ task, taskSer
     var processVariables = new Variables();
 
     
-    processVariables.set('project_status', 'Started');
-    processVariables.set('Is_Project_Finished', true);
+    processVariables.set('project_status_plumber', 'Started');
+    processVariables.set('Is_Plumber_Project_Finished', true);
     
     
     console.log(data)

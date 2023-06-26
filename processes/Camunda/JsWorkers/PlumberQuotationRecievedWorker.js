@@ -47,10 +47,11 @@ client.subscribe('plumber-quotation-recieved', async function ({ task, taskServi
     var randomNumber = Math.floor(Math.random() * 5);
 
     var processVariables = new Variables();
-    processVariables.set('duration', durations[randomNumber]);
-    processVariables.set('budget', budgets[randomNumber]);
+    processVariables.set('new duration', durations[randomNumber]);
+    processVariables.set('new budget', budgets[randomNumber]);
 
     taskService.complete(task, processVariables);
   })
 
 });
+plumber
