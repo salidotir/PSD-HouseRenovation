@@ -49,7 +49,7 @@ client.subscribe('find-possible-workers', async function ({ task, taskService })
 
     const constructor = ["C_GroupX", "C_GroupY", "C_GroupZ", "C_GroupX1", "C_GroupY2", "C_GroupZ3"]
     //var Is_Constructor_Required = randomNumber3 > 3 ? true : false;
-    const Is_Constructor_Required = true;
+    const Is_Constructor_Required = false;
     console.log("Is_Constructor_Required: " + Is_Constructor_Required);
 
 

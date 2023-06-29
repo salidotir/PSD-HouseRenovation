@@ -35,11 +35,20 @@ client.subscribe('inform-project-finished-to-householder', async function ({ tas
     // processVariables.set('project_status_plumber', project_status_plumber);
     // processVariables.set('Is_Plumber_Project_Finished', Is_Plumber_Project_Finished);
 
+    console.log("Brooks was here!")
     console.log(Is_Plumber_Required)
-    
+    console.log(Is_Electrician_Required)
+    console.log(Is_Constructor_Required)
+    console.log("So was me!")
+    console.log(Is_Plumber_Project_Finished)
+    console.log(Is_Electrician_Project_Finished)
+    console.log(Is_Constructor_Project_Finished)
+    console.log("City of stars shining for YOU!")
+
+
     console.log(data)
 
-    if ((Is_Constructor_Required==true && Is_Constructor_Project_Finished==false) || (Is_Electrician_Required==true && Is_Electrician_Project_Finished==false) || (Is_Plumber_Required==true && Is_Plumber_Project_Finished==false))
+    if ((Is_Constructor_Required==true && Is_Constructor_Project_Finished!=true) || (Is_Electrician_Required==true && Is_Electrician_Project_Finished!=true) || (Is_Plumber_Required==true && Is_Plumber_Project_Finished!=true))
     {
         //Project is not finished 
     }

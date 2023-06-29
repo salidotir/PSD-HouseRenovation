@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1h702ly" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.9.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1h702ly" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.11.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
   <bpmn:process id="HRCProcessModified" name="HRC Process Modified" isExecutable="true">
     <bpmn:subProcess id="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4" name="Communicating with Plumbing Company">
       <bpmn:incoming>sid-BE84D758-D1FA-47F5-BB1E-27F3E1DABA3A</bpmn:incoming>
@@ -225,7 +225,7 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_Electrician_Required}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="sid-3CDC72AB-2FE1-4DC8-8965-44E65C829A1C" name="Constructor required" sourceRef="ServicesRequired" targetRef="sid-1EEAD93D-C7FB-4C62-886A-D800CAF8BF33">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!Is_Constructor_Required}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Is_Constructor_Required}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0cf0y9j" name="" sourceRef="RejectRequest" targetRef="Event_0esv9or" />
     <bpmn:sequenceFlow id="Flow_15yjnel" name="" sourceRef="InformHouseholderAboutFeasibility" targetRef="Gateway_0coj2rl" />
@@ -343,13 +343,6 @@
   <bpmn:message id="Message_1e15i5p" name="Message_Constructor_Finished" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="HRCProcessModified">
-      <bpmndi:BPMNShape id="Gateway_1t3n46t_di" bpmnElement="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" isMarkerVisible="true">
-        <dc:Bounds x="5607" y="638" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1trqe09_di" bpmnElement="SelectBestWorkerAmongPlumbersAutomatically">
-        <dc:Bounds x="2083" y="621" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4_gui" bpmnElement="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4" isExpanded="true">
         <dc:Bounds x="1200" y="473" width="820" height="367" />
         <bpmndi:BPMNLabel />
@@ -390,13 +383,13 @@
         <dc:Bounds x="1324" y="617" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A_gui" bpmnElement="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A">
-        <di:waypoint x="1266" y="657" />
-        <di:waypoint x="1324" y="657" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="sid-E884811A-4AAC-411F-AF73-4E7621FD52B8_gui" bpmnElement="sid-E884811A-4AAC-411F-AF73-4E7621FD52B8">
         <di:waypoint x="1579" y="657" />
         <di:waypoint x="1710" y="657" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A_gui" bpmnElement="sid-5C5071BF-65F0-4C5E-9597-72B88F778E0A">
+        <di:waypoint x="1266" y="657" />
+        <di:waypoint x="1324" y="657" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1yzkm6b_di" bpmnElement="Flow_1yzkm6b">
         <di:waypoint x="1810" y="657" />
@@ -644,6 +637,10 @@
           <dc:Bounds x="5761" y="486" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1trqe09_di" bpmnElement="SelectBestWorkerAmongPlumbersAutomatically">
+        <dc:Bounds x="2083" y="621" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_189cfuw_di" bpmnElement="SendaStartProjectRequestToTheWinnerPlumber">
         <dc:Bounds x="2260" y="617" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -689,6 +686,21 @@
       <bpmndi:BPMNShape id="Activity_17ym8j9_di" bpmnElement="Activity_196i1ch">
         <dc:Bounds x="2450" y="617" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1t3n46t_di" bpmnElement="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" isMarkerVisible="true">
+        <dc:Bounds x="5607" y="638" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0izoxdf_di" bpmnElement="DataInputAssociation_0izoxdf">
+        <di:waypoint x="1601" y="554" />
+        <di:waypoint x="1733" y="617" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-60E0776B-BEE6-4E90-BE23-5ED6CDE0BDE5_gui" bpmnElement="sid-60E0776B-BEE6-4E90-BE23-5ED6CDE0BDE5">
+        <di:waypoint x="1760" y="617" />
+        <di:waypoint x="1804" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0ozs4g5_di" bpmnElement="DataInputAssociation_0ozs4g5">
+        <di:waypoint x="1567" y="570" />
+        <di:waypoint x="1537" y="617" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_05fcc2f_di" bpmnElement="DataInputAssociation_05fcc2f">
         <di:waypoint x="2998" y="187" />
         <di:waypoint x="3130" y="276" />
@@ -901,18 +913,6 @@
         <di:waypoint x="5694" y="663" />
         <di:waypoint x="5694" y="658" />
         <di:waypoint x="5730" y="658" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="sid-60E0776B-BEE6-4E90-BE23-5ED6CDE0BDE5_gui" bpmnElement="sid-60E0776B-BEE6-4E90-BE23-5ED6CDE0BDE5">
-        <di:waypoint x="1760" y="617" />
-        <di:waypoint x="1804" y="570" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0izoxdf_di" bpmnElement="DataInputAssociation_0izoxdf">
-        <di:waypoint x="1601" y="554" />
-        <di:waypoint x="1733" y="617" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0ozs4g5_di" bpmnElement="DataInputAssociation_0ozs4g5">
-        <di:waypoint x="1567" y="570" />
-        <di:waypoint x="1537" y="617" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
