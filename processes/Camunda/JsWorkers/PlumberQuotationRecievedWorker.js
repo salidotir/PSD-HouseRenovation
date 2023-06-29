@@ -23,8 +23,7 @@ client.subscribe('plumber-quotation-recieved', async function ({ task, taskServi
   const startdate = task.variables.get('startdate');
   const duration = task.variables.get('duration');
   const budget = task.variables.get('budget');
-  // const address = task.variables.get('address');
-  var list_plumber = task.variables.get('list_plumber', list_plumber);
+  // var list_plumber = task.variables.get('list_plumber', list_plumber);
 
   restclient.get('http://localhost:8080/plumber-quotation-recieved/', function (data, response) {
 

@@ -17,20 +17,20 @@ var restclient = new RESTClient();
 
 
 // susbscribe to the topic: 'charge-card'
-client.subscribe('constructor-check-proj-is-finished', async function ({ task, taskService }) {
+client.subscribe('project-finished-status-received', async function ({ task, taskService }) {
   // Put your business logic here
   // Get a process variable
 
 
 
-  restclient.get('http://localhost:8080/constructor-check-proj-is-finished/', function (data, response) {
+  restclient.get('http://localhost:8080/project-finished-status-received/', function (data, response) {
 
     var processVariables = new Variables();
 
 
     const random = Math.floor(Math.random() * 101) % 2 ? true : false;
     // processVariables.set('project_status_constructor', random);
-    // processVariables.set('Is_project_finished_con', random);
+    processVariables.set('Is_Constructor_Project_Finished', random);
 
 
     console.log(data)
