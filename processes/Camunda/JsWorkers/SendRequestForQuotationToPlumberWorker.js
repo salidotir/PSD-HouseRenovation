@@ -25,6 +25,11 @@ client.subscribe('send-request-for-quotation-to-plumber', async function ({ task
     // const address = task.variables.get('address');
     // var list_plumber = task.variables.get('list_plumber', list_plumber);
 
+    const Is_Electrician_Required = task.variables.get('Is_Plumber_Required')
+    const Is_Constructor_Required = task.variables.get('Is_Plumber_Required')
+    const Is_Plumber_Required = task.variables.get('Is_Plumber_Required')
+   
+
 
     restclient.get('http://localhost:8080/send-request-for-quotation-to-plumber/', function (data, response) {
 
@@ -33,6 +38,13 @@ client.subscribe('send-request-for-quotation-to-plumber', async function ({ task
 
         console.log('Request for quotation sent to plumber.')
         console.log(data)
+
+        console.log("Brooks was here!")
+        console.log(Is_Plumber_Required)
+        console.log(Is_Electrician_Required)
+        console.log(Is_Constructor_Required)
+        console.log("So was me!")
+
 
         taskService.complete(task);
     })

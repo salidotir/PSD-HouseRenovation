@@ -20,6 +20,8 @@ client.subscribe('inform-project-finished-to-householder', async function ({ tas
   const Is_Constructor_Project_Finished   = task.variables.get('Is_Constructor_Project_Finished')
   const Is_Plumber_Project_Finished   = task.variables.get('Is_Plumber_Project_Finished')
 
+
+
   const Is_Electrician_Required = task.variables.get('Is_Plumber_Required')
   const Is_Constructor_Required = task.variables.get('Is_Plumber_Required')
   const Is_Plumber_Required = task.variables.get('Is_Plumber_Required')

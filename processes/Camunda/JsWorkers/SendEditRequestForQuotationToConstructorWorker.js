@@ -17,6 +17,11 @@ var restclient = new RESTClient();
 client.subscribe('send-RFQ-to-constructor', async function ({ task, taskService }) {
   // Put your business logic here
 
+  const Is_Electrician_Required = task.variables.get('Is_Plumber_Required')
+  const Is_Constructor_Required = task.variables.get('Is_Plumber_Required')
+  const Is_Plumber_Required = task.variables.get('Is_Plumber_Required')
+ 
+
  
 
   restclient.get('http://localhost:8080/send-RFQ-to-constructor/', function (data, response) {
@@ -27,6 +32,12 @@ client.subscribe('send-RFQ-to-constructor', async function ({ task, taskService 
     processVariables.set('Request_Status', 'Sended to Constructors');
     
     
+    console.log("Brooks was here!")
+    console.log(Is_Plumber_Required)
+    console.log(Is_Electrician_Required)
+    console.log(Is_Constructor_Required)
+    console.log("So was me!")
+
     console.log(data)
 
     taskService.complete(task, processVariables);
