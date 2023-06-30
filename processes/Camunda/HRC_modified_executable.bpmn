@@ -78,7 +78,7 @@
       <bpmn:sequenceFlow id="Flow_02mmoyn" sourceRef="StoreElectricianQuotationInDBMS" targetRef="Event_19je2u9" />
       <bpmn:dataStoreReference id="sid-42E39871-C3A4-4B79-BBBB-41ED2EA95DF0_2" name="Electrical Requests DBMS" />
       <bpmn:sequenceFlow id="Flow_1oki61j" sourceRef="SendRequestForQuotationToElectrician" targetRef="ElectricianQuotationReceived" />
-      <bpmn:serviceTask id="SendRequestForQuotationToElectrician" name="Send A equest for quotation to electrician" camunda:type="external" camunda:topic="send-request-for-quotation-to-electrician">
+      <bpmn:serviceTask id="SendRequestForQuotationToElectrician" name="Send A request for quotation to electrician" camunda:type="external" camunda:topic="send-request-for-quotation-to-electrician">
         <bpmn:incoming>sid-C8A532E9-93B0-4632-B5A2-181EB91A6E68</bpmn:incoming>
         <bpmn:outgoing>Flow_1oki61j</bpmn:outgoing>
       </bpmn:serviceTask>
@@ -355,9 +355,6 @@
   <bpmn:message id="Message_1e15i5p" name="Message_Constructor_Finished" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="HRCProcessModified">
-      <bpmndi:BPMNShape id="Activity_0e18t3u_di" bpmnElement="ProjectFinishedStatusReceived">
-        <dc:Bounds x="5128" y="1061" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4_gui" bpmnElement="sid-09A3154C-DF65-466A-9860-4F9F9A7B0BF4" isExpanded="true">
         <dc:Bounds x="1200" y="473" width="820" height="367" />
         <bpmndi:BPMNLabel />
@@ -417,21 +414,19 @@
         <dc:Bounds x="2590" y="86" width="930" height="387" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_19je2u9_di" bpmnElement="Event_19je2u9">
-        <dc:Bounds x="3422" y="269" width="36" height="36" />
+      <bpmndi:BPMNShape id="sid-9315DA32-6809-42B3-94F8-0C75F53FCB15_gui" bpmnElement="sid-9315DA32-6809-42B3-94F8-0C75F53FCB15">
+        <dc:Bounds x="2655" y="270" width="30" height="30" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="3412" y="312" width="57" height="27" />
+          <dc:Bounds x="2628" y="302" width="85" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0uz7ro8_di" bpmnElement="StoreElectricianQuotationInDBMS">
         <dc:Bounds x="3200" y="247" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-42E39871-C3A4-4B79-BBBB-41ED2EA95DF0_gui_2" bpmnElement="sid-42E39871-C3A4-4B79-BBBB-41ED2EA95DF0_2">
-        <dc:Bounds x="3204" y="145" width="62" height="60" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="3194" y="105" width="82" height="27" />
-        </bpmndi:BPMNLabel>
+      <bpmndi:BPMNShape id="BPMNShape_1u1qmvd" bpmnElement="ElectricianQuotationReceived">
+        <dc:Bounds x="2970" y="247" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataObjectReference_0rvt07n_di" bpmnElement="DataObjectReference_0rvt07n">
         <dc:Bounds x="3002" y="150" width="36" height="50" />
@@ -439,14 +434,16 @@
           <dc:Bounds x="2995" y="116" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1u1qmvd" bpmnElement="ElectricianQuotationReceived">
-        <dc:Bounds x="2970" y="247" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="sid-9315DA32-6809-42B3-94F8-0C75F53FCB15_gui" bpmnElement="sid-9315DA32-6809-42B3-94F8-0C75F53FCB15">
-        <dc:Bounds x="2655" y="270" width="30" height="30" />
+      <bpmndi:BPMNShape id="Event_19je2u9_di" bpmnElement="Event_19je2u9">
+        <dc:Bounds x="3422" y="269" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2628" y="302" width="85" height="14" />
+          <dc:Bounds x="3412" y="312" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-42E39871-C3A4-4B79-BBBB-41ED2EA95DF0_gui_2" bpmnElement="sid-42E39871-C3A4-4B79-BBBB-41ED2EA95DF0_2">
+        <dc:Bounds x="3204" y="145" width="62" height="60" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3194" y="105" width="82" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1gzlf7o_di" bpmnElement="SendRequestForQuotationToElectrician">
@@ -714,6 +711,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1t3n46t_di" bpmnElement="sid-4615AE58-07A2-45A7-8451-8C2EE5EF4C37" isMarkerVisible="true">
         <dc:Bounds x="5607" y="638" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0e18t3u_di" bpmnElement="ProjectFinishedStatusReceived">
+        <dc:Bounds x="5128" y="1061" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataInputAssociation_0izoxdf_di" bpmnElement="DataInputAssociation_0izoxdf">
         <di:waypoint x="1601" y="554" />
