@@ -484,11 +484,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\surface\\Desktop\\Process and Service Design\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
+      "projectUniqueName": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
       "projectName": "IO.Swagger",
-      "projectPath": "C:\\Users\\surface\\Desktop\\Process and Service Design\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
+      "projectPath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
       "packagesPath": "C:\\Users\\surface\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\surface\\Desktop\\Process and Service Design\\PSD-HouseRenovation\\services\\constructor\\src\\obj\\",
+      "outputPath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\constructor\\src\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\surface\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -505,8 +505,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\surface\\Desktop\\Process and Service Design\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {
-              "projectPath": "C:\\Users\\surface\\Desktop\\Process and Service Design\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj"
+            "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {
+              "projectPath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj"
             }
           }
         }
