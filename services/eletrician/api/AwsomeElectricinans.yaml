@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: AwsomeElectricians
+  title: AwesomeElectricians
   version: "1.0"
 servers:
   - url: https://api.server.test/v1
@@ -14,8 +14,8 @@ paths:
     post:
       tags:
         - RequestForQuotation
-      summary: Recives a new request for quotation from a HRC company and responds whether the request was submitted or not
-      description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
+      summary: Receives a new request for quotation from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for quotation via this API. AwesomeConstructor return whether the request was submitted or an exception happened.
       operationId: QuotationRequestPOST
       requestBody:
         description: RequestForQuotation
@@ -26,7 +26,7 @@ paths:
               $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "201":
-          description: Request submitted successfuly.
+          description: Request submitted successfully.
         default:
           description: Exception happened!
       x-swagger-router-controller: Quotation
@@ -35,8 +35,8 @@ paths:
     put:
       tags:
         - RequestForQuotation
-      summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
-      description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
+      summary: Receives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
+      description: A HRC can sends a request for editing the request for quotation with specific id  via this API. AwesomeConstructor return whether the request was submitted or an exception happened.
       operationId: QuotationPUT
       parameters:
         - name: id
@@ -56,7 +56,7 @@ paths:
               $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "200":
-          description: Changes applied successfuly
+          description: Changes applied successfully
         "404":
           description: Resource not found
         default:
@@ -66,8 +66,8 @@ paths:
     delete:
       tags:
         - RequestForQuotation
-      summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
-      description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
+      summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quotation was deleted or exception happened.
+      description: A HRC can sends a request for editing the request for quotation with specific id via this API. AwesomeConstructor return whether the request was deleted or exception happened.
       operationId: deleteRequestForQuotationIdDELETE
       parameters:
         - name: id
@@ -81,7 +81,7 @@ paths:
           example: 1
       responses:
         "200":
-          description: deleted successfuly
+          description: deleted successfully
         "404":
           description: Resource not found
         default:
@@ -93,7 +93,7 @@ paths:
         tags:
         - Project
         summary: Request to start the project
-        description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
+        description: In the event that a HRC decides AwesomeConstructor as the winner, the HRC informs AwesomeConstructor start working on the project.
         operationId: ProjectPOST
         requestBody:
           description: RequestForQuotation
@@ -125,7 +125,7 @@ components:
           type: integer
           example: 60
         Budget:
-          description: Max budget in Euroes
+          description: Max budget in Euros
           type: number
           example: 1000
     Quotation:
@@ -145,7 +145,7 @@ components:
           type: string
           description: the date that
           example: 11/10/2023
-      description: Model containg the quotation offered by the renovation company
+      description: Model containing the quotation offered by the renovation company
       example:
         duration: 10
         servicePrice: 1000

@@ -14,7 +14,7 @@ paths:
     post:
       tags:
       - RequestForQuotation
-      summary: Recives a new request for quoation from a HRC company and responds whether the request was submitted or not
+      summary: Receives a new request for quotation  from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: RequestForQuotationPOST
       requestBody:
@@ -35,7 +35,7 @@ paths:
     put:
       tags:
       - RequestForQuotation
-      summary: Recives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
+      summary: Receives a request for editing the quotation request with specific id from a HRC company and responds whether the request was submitted or not
       description: A HRC can sends a request for editing the request for quoation with specific id  via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: RequestForQuotationPUT
       parameters:
@@ -66,8 +66,8 @@ paths:
     delete:
       tags:
       - RequestForQuotation
-      summary: Recives a request for deleting the quotation request with specific id from a HRC company and responds whether the quoation was deleted or exception happened.
-      description: A HRC can sends a request for editing the request for quoation with specific id via this API. AwsomeConstructor return whether the request was deleted or exception happened.
+      summary: Receives a request for deleting the quotation request with specific id from a HRC company and responds whether the quotation was deleted or exception happened.
+      description: A HRC can sends a request for editing the request for quotation with specific id via this API. AwesomeConstructor return whether the request was deleted or exception happened.
       operationId: RequestForQuotationIdDELETE
       parameters:
       - name: id
@@ -81,7 +81,7 @@ paths:
         example: 1
       responses:
         "200":
-          description: Deleted successfuly
+          description: Deleted successfully
         "404":
           description: Resource not found
         default:
@@ -92,8 +92,8 @@ paths:
     get:
       tags:
       - RequestForQuotation
-      summary: Recives a request for offering the quotation of the request for quotaion with specific id from a HRC company and responds with the Quotation.
-      description: A HRC can sends a request for offering the Qutation of the request for quoation with specific id via this API. AwsomeConstructor responds with the Quotation.
+      summary: Receives a request for offering the quotation of the request for quotation with specific id from a HRC company and responds with the Quotation.
+      description: A HRC can sends a request for offering the Quotation of the request for quotation with specific id via this API. AwesomeConstructor responds with the Quotation.
       operationId: QuotationIdGET
       parameters:
       - name: id
@@ -123,7 +123,7 @@ paths:
       tags:
       - Project
       summary: Request to start the project
-      description: In the event that a HRC decides AwsomeContructor as the winner, the HRC informs PlumberBrothersto start working on the project.
+      description: In the event that a HRC decides AwesomeConstructor as the winner, the HRC informs PlumberBrothers start working on the project.
       operationId: ProjectPOST
       requestBody:
         description: RequestForQuotation
@@ -184,7 +184,7 @@ components:
           type: integer
           example: 60
         Budget:
-          description: Max budget in Euroes
+          description: Max budget in Euros
           type: number
           example: 1000
     Quotation:
@@ -204,7 +204,7 @@ components:
           type: string
           description: the date that
           example: 11/10/2023
-      description: Model containg the quotation offered by the renovation company
+      description: Model containing the quotation offered by the renovation company
       example:
         duration: 10
         servicePrice: 1000
