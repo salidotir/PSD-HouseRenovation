@@ -6,7 +6,7 @@ servers:
 - url: https://api.server.test/v1
 tags:
 - name: RequestForQuotation
-  description: Request for quoation
+  description: Request for quotation
 - name: Project
 
 paths:
@@ -15,7 +15,7 @@ paths:
       tags:
       - RequestForQuotation
       summary: Receives a new request for quotation  from a HRC company and responds whether the request was submitted or not
-      description: A HRC can sends a request for quoation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
+      description: A HRC can sends a request for quotation via this API. AwsomeConstructor return whether the request was submitted or an exception happened.
       operationId: RequestForQuotationPOST
       requestBody:
         description: RequestForQuotation
@@ -26,7 +26,7 @@ paths:
               $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "201":
-          description: Request submitted successfuly.
+          description: Request submitted successfully.
         default:
           description: Exception happened!
       x-swagger-router-controller: Quotation
@@ -56,7 +56,7 @@ paths:
               $ref: '#/components/schemas/RequestForQuotation'
       responses:
         "200":
-          description: Changes applied successfuly
+          description: Changes applied successfully
         "404":
           description: Resource not found
         default:
