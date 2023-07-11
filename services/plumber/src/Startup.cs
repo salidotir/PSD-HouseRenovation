@@ -73,8 +73,8 @@ namespace PlumberBrothers
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Awsome Electrician",
-                    Description = "A simple Constructor comapny",
+                    Title = "Plumber",
+                    Description = "A simple Plumber comapny",
                 });
             });
         }

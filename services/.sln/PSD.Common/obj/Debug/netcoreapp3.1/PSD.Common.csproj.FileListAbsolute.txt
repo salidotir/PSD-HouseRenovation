@@ -24,3 +24,13 @@ C:\Users\surface\Documents\new PSD\PSD-HouseRenovation\services\.sln\PSD.Common\
 C:\Users\surface\Documents\new PSD\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csproj.CoreCompileInputs.cache
 C:\Users\surface\Documents\new PSD\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.dll
 C:\Users\surface\Documents\new PSD\PSD-HouseRenovation\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.pdb
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.deps.json
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.dll
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\bin\Debug\netcoreapp3.1\PSD.Common.pdb
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csproj.AssemblyReference.cache
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.GeneratedMSBuildEditorConfig.editorconfig
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.AssemblyInfoInputs.cache
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.AssemblyInfo.cs
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.csproj.CoreCompileInputs.cache
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.dll
+O:\OneDrive - Politecnico di Milano\@POLIMI\S2\Process and design service\Project\PSD-HouseRenovation(main)\services\.sln\PSD.Common\obj\Debug\netcoreapp3.1\PSD.Common.pdb

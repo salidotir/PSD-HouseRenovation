@@ -73,8 +73,8 @@ namespace AwsomeElectricians
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Awsome Electrician",
-                    Description = "A simple Constructor comapny",
+                    Title = "Electrician",
+                    Description = "A simple Electrician comapny",
                 });
             });
         }
