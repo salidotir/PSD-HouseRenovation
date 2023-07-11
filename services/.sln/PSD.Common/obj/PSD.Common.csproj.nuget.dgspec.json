@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {}
+    "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {
+    "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj",
+        "projectUniqueName": "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj",
         "projectName": "PSD.Common",
-        "projectPath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj",
+        "projectPath": "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\PSD.Common.csproj",
         "packagesPath": "C:\\Users\\surface\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\obj\\",
+        "outputPath": "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\.sln\\PSD.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\surface\\AppData\\Roaming\\NuGet\\NuGet.Config",

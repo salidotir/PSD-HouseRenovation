@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VAitGvnAF1gxXMHZEw1RmqvoTb8aXPe55JGZA7lQ5bL/soaiCLZZe0DMyVQLz0SRqI2lyK8pPbSbxjVDQFo3Vg==",
+  "dgSpecHash": "f85k6xgOCv+Q6JpmQ5f6vNQKadtrzyurvrwEVxcAp0IvJ5qFBQ/2UmLKt8mxvNcvJGVPDjCIhBs2bAvA1d247Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\surface\\Documents\\new PSD\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
+  "projectFilePath": "C:\\Users\\surface\\Documents\\PSD\\PSD-HouseRenovation\\services\\constructor\\src\\Constructor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\surface\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "C:\\Users\\surface\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
