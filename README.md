@@ -1,4 +1,7 @@
 # ReNewHouse
+
+This project is for the course Process &amp; Service Design at Polimi.
+
 In this project, we want to model the service offered by a house renovation company(HRC) to its clients. The house renovation company service relies on the services offered by a set of third party companies specialized in plumbing, electrical and constructing companies. The house holder sends a renovation request to the HRC. HRC then sends a request for quotation to that set of companies and then these companies offer their quotations to the HRC and finlally the HRC selects one of these offers and informs the winner to start working on the project.
 
 
